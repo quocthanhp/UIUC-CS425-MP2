@@ -46,10 +46,10 @@ package labrpc
 //
 // svc := MakeService(receiverObject) -- obj's methods will handle RPCs
 //   much like Go's rpcs.Register()
-//   pass svc to srv.AddService()
+//   pass svc to srv.Addrvice()
 //
 
-import "../labgob"
+import "raft/labgob"
 import "bytes"
 import "reflect"
 import "sync"

@@ -19,7 +19,7 @@ package raft
 
 import "sync"
 import "sync/atomic"
-import "../labrpc"
+import "raft/labrpc"
 
 //
 // as each Raft peer becomes aware that successive log entries are
