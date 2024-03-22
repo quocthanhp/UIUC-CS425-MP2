@@ -71,7 +71,7 @@ type Raft struct {
 	commitIndex       int
 	state             ServerState
 	votesReceived     map[int]bool
-	electionTimeout   float64
+	electionTimeout   time.Duration
 	electionCh        ElectionChan
 	lastHeartBeatTime time.Time
 }
@@ -243,7 +243,7 @@ func (rf *Raft) StartElectionTimer() {
 			// DPrintf("Term %d: New Leader has been elected\n", rf.currentTerm)
 			return
 		default:
-			time.Sleep(time.Duration(rf.electionTimeout) * time.Second)
+			time.Sleep(rf.electionTimeout * time.Second)
 
 			// election timeout, start new election
 			// DPrintf("Term %d: Election timeout elapsed, start new election\n", rf.currentTerm)
@@ -380,12 +380,30 @@ func (rf *Raft) StartServer() {
 
 		switch state {
 		case Follower:
-			select {
-			// case <- rf.heartbeatCh:
-			// 	//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
-			// case <- time.After(rf.heartBeatTimeout):
-			// 	rf.StartElection()
-			}
+			previousTime := rf.lastHeartBeatTime
+
+			givenDuration := rf.electionTimeout
+
+			ticker := time.NewTicker(100 * time.Millisecond)
+			defer ticker.Stop()
+
+			done := make(chan bool)
+
+			go func() {
+				for {
+					select {
+					case <-ticker.C:
+						if time.Now().After(previousTime.Add(givenDuration)) {
+
+							done <- true
+							return
+						}
+					}
+				}
+			}()
+
+			<-done
+			rf.StartElection()
 		case Candidate:
 			select {
 			// case <- rf.heartbeatCh:
@@ -400,12 +418,13 @@ func (rf *Raft) StartServer() {
 	}
 }
 
-func getRandomTimer() float64 {
+func getRandomTimer() time.Duration {
 	source := rand.NewSource(time.Now().UnixNano())
 	random := rand.New(source)
-	randomTimer := 0.5 + random.Float64()*0.5
+	randomDurationInSeconds := 0.5 + random.Float64()*0.5
+	randomDuration := time.Duration(randomDurationInSeconds * float64(time.Second))
 
-	return randomTimer
+	return randomDuration
 }
 
 // the service or tester wants to create a Raft server. the ports
