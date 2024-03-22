@@ -65,14 +65,15 @@ type Raft struct {
 	// state a Raft server must maintain.
 	// You may also need to add other state, as per your implementation.
 
-	currentTerm      int
-	votedFor         int
-	log              []LogEntry
-	commitIndex      int
-	state            ServerState
-	votesReceived    map[int]bool
-	electionTimeout  float64
-	electionCh       ElectionChan
+	currentTerm       int
+	votedFor          int
+	log               []LogEntry
+	commitIndex       int
+	state             ServerState
+	votesReceived     map[int]bool
+	electionTimeout   float64
+	electionCh        ElectionChan
+	lastHeartBeatTime time.Time
 }
 
 type ElectionChan struct {
@@ -246,16 +247,16 @@ func (rf *Raft) StartElectionTimer() {
 			// election timeout, start new election
 			// DPrintf("Term %d: Election timeout elapsed, start new election\n", rf.currentTerm)
 			rf.StartElection()
-		}	
+		}
 	}
 }
 
 func (rf *Raft) CancelElectionTimer() {
 	if atomic.SwapUint32(&rf.electionCh.closed, 1) == 0 {
 		// Is there case where Election starts but SendRequestVoteToPeer routine in last term still exists ?
-        // Close the channel if it's not already closed
-        close(rf.electionCh.ch)
-    }
+		// Close the channel if it's not already closed
+		close(rf.electionCh.ch)
+	}
 }
 
 func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
@@ -296,7 +297,6 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 		rf.CancelElectionTimer()
 	}
 }
-
 
 // example code to send a RequestVote RPC to a server.
 // server is the index of the target server in rf.peers[].
@@ -380,10 +380,10 @@ func (rf *Raft) StartServer() {
 		switch state {
 		case Follower:
 			select {
-				// case <- rf.heartbeatCh:
-				// 	//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
-				// case <- time.After(rf.heartBeatTimeout):
-				// 	rf.StartElection()
+			// case <- rf.heartbeatCh:
+			// 	//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
+			// case <- time.After(rf.heartBeatTimeout):
+			// 	rf.StartElection()
 			}
 		case Candidate:
 			select {
@@ -417,13 +417,13 @@ func getRandomTimer() float64 {
 func Make(peers []*labrpc.ClientEnd, me int,
 	applyCh chan ApplyMsg) *Raft {
 	rf := &Raft{
-		peers:       peers,
-		me:          me,
-		currentTerm: 0,
-		votedFor:    -1,
-		log:         make([]LogEntry, 0),
-		commitIndex: 0,
-		state:       Follower,
+		peers:           peers,
+		me:              me,
+		currentTerm:     0,
+		votedFor:        -1,
+		log:             make([]LogEntry, 0),
+		commitIndex:     0,
+		state:           Follower,
 		electionTimeout: getRandomTimer(),
 	}
 	rf.peers = peers
