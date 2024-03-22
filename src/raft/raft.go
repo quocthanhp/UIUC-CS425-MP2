@@ -151,7 +151,7 @@ func (rf *Raft) sendHeartbeat(server int) {
 // believes it is the leader.
 func (rf *Raft) GetState() (int, bool) {
 
-	var term int
+	var term int = rf.currentTerm
 	// Your code here (2A).
 	var isleader bool = (rf.state == Leader)
 	return term, isleader
