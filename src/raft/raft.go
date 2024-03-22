@@ -99,6 +99,7 @@ func (rf *Raft) AppendEntries(args AppendEntriesArgs, reply *AppendEntriesReply)
 	reply.Success = true
 	reply.Term = rf.currentTerm
 	rf.lastHeartBeatTime = time.Now()
+	rf.state = Follower
 }
 
 func (rf *Raft) leaderLoop() {
