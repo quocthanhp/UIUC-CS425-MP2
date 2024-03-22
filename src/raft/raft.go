@@ -385,27 +385,10 @@ func (rf *Raft) StartServer() {
 
 			givenDuration := rf.electionTimeout
 
-			ticker := time.NewTicker(100 * time.Millisecond)
-			defer ticker.Stop()
-
-			done := make(chan bool)
-
-			go func() {
-				for {
-					select {
-					case <-ticker.C:
-						if time.Now().After(previousTime.Add(givenDuration)) {
-
-							done <- true
-							return
-						}
-					}
-				}
-			}()
-
-			<-done
-			rf.state = Candidate
-			rf.StartElection()
+			if time.Now().After(previousTime.Add(givenDuration)) {
+				rf.state = Candidate
+				rf.StartElection()
+			}
 		case Candidate:
 			select {
 			// case <- rf.heartbeatCh:
@@ -417,6 +400,7 @@ func (rf *Raft) StartServer() {
 			// 	// rf.mu.Unlock()
 			}
 		}
+		time.Sleep(100 * time.Millisecond)
 	}
 }
 
