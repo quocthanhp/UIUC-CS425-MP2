@@ -200,10 +200,12 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		// not voted yet OR already voted for that candidate
 		reply.VoteGranted = true
 		rf.votedFor = candidateId
+		DPrintf("Term %d: Node %d got voted by node %d\n", currentTerm, candidateId, rf.me)
 	} else {
 		// already voted for other candidate OR RequestVote is outdated
 		reply.VoteGranted = false
 		reply.Term = currentTerm
+		DPrintf("Term %d: Node %d did not get voted by node %d\n", currentTerm, candidateId, rf.me)
 		return
 	}
 
@@ -214,7 +216,7 @@ func (rf *Raft) StartElection() {
 	defer rf.mu.Unlock()
 
 	if rf.state != Candidate {
-		// DPrintf("Not a Candidate. Fail to start election!\n")
+		DPrintf("Not a Candidate. Fail to start election!\n")
 		return
 	}
 
@@ -229,7 +231,7 @@ func (rf *Raft) StartElection() {
 	electionTerm := rf.currentTerm
 	for peer := range rf.peers {
 		if peer != rf.me {
-			// DPrintf("Term %d: Node %d sent RequestVote to node %d\n", rf.currentTerm, rf.me, peer)
+			DPrintf("Term %d: Node %d sent RequestVote to node %d\n", rf.currentTerm, rf.me, peer)
 			go rf.SendRequestVoteToPeer(peer, electionTerm)
 		}
 	}
@@ -241,13 +243,13 @@ func (rf *Raft) StartElectionTimer() {
 	for {
 		select {
 		case <-rf.electionCh.ch:
-			// DPrintf("Term %d: New Leader has been elected\n", rf.currentTerm)
+			DPrintf("Term %d: New Leader has been elected\n", rf.currentTerm)
 			return
 		default:
 			time.Sleep(rf.electionTimeout * time.Second)
 
 			// election timeout, start new election
-			// DPrintf("Term %d: Election timeout elapsed, start new election\n", rf.currentTerm)
+			DPrintf("Term %d: Election timeout elapsed, start new election\n", rf.currentTerm)
 			rf.StartElection()
 		}
 	}
@@ -267,7 +269,7 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 
 	ok := rf.peers[peer].Call("Raft.RequestVote", &args, &reply)
 	if !ok {
-		// DPrintf("Term %d: Fail to send RequestVote from node %d to node %d\n", rf.currentTerm, rf.me, peer)
+		DPrintf("Term %d: Fail to send RequestVote from node %d to node %d\n", rf.currentTerm, rf.me, peer)
 		return
 	}
 
@@ -290,7 +292,7 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 			// receive vote from majority of servers -> become Leader
 			rf.state = Leader
 			rf.CancelElectionTimer()
-			// DPrintf("Term %d: Node %d becomes Leader\n", rf.currentTerm, rf.me)
+			DPrintf("Term %d: Node %d becomes Leader\n", rf.currentTerm, rf.me)
 		}
 	} else if voteReplyTerm > currentTerm {
 		rf.currentTerm = voteReplyTerm
@@ -386,6 +388,7 @@ func (rf *Raft) StartServer() {
 			givenDuration := rf.electionTimeout
 
 			if time.Now().After(previousTime.Add(givenDuration)) {
+				DPrintf("Term %d: Leader dies. Node %d start new election\n", rf.currentTerm, rf.me)
 				rf.state = Candidate
 				rf.StartElection()
 			}
