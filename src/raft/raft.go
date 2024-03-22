@@ -264,7 +264,7 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 	args := RequestVoteArgs{Term: electionTerm, CandidateId: rf.me}
 	reply := RequestVoteReply{}
 
-	ok := rf.peers[peer].Call("Raft.RequestVote", args, reply)
+	ok := rf.peers[peer].Call("Raft.RequestVote", &args, &reply)
 	if !ok {
 		// DPrintf("Term %d: Fail to send RequestVote from node %d to node %d\n", rf.currentTerm, rf.me, peer)
 		return
