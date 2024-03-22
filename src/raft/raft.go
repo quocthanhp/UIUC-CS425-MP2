@@ -72,7 +72,6 @@ type Raft struct {
 	votesReceived    map[int]bool
 	electionTimeout  int
 	electionCh       ElectionChan
-	heartbeatCh      chan bool // should change to AppendEntries Chan ?
 	heartBeatTimeout time.Duration
 }
 
@@ -95,7 +94,7 @@ type AppendEntriesReply struct {
 	Success bool
 }
 
-func (rf *Raft) appendEntries(args AppendEntriesArgs, reply *AppendEntriesReply) {
+func (rf *Raft) AppendEntries(args AppendEntriesArgs, reply *AppendEntriesReply) {
 	reply.Success = true
 	reply.Term = rf.currentTerm
 }
@@ -150,8 +149,8 @@ func (rf *Raft) sendHeartbeat(server int) {
 func (rf *Raft) GetState() (int, bool) {
 
 	var term int
-	var isleader bool
 	// Your code here (2A).
+	var isleader bool = (rf.state == Leader)
 	return term, isleader
 }
 
@@ -396,8 +395,6 @@ func (rf *Raft) StartServer() {
 				// rf.state = Follower
 				// rf.mu.Unlock()
 			}
-		case Leader:
-			// send heartbeat periodically
 		}
 	}
 }
