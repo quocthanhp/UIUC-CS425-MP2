@@ -43,6 +43,15 @@ type LogEntry struct {
 	Term    int
 }
 
+// Server states
+type ServerState int
+
+const (
+	Follower ServerState = iota
+	Candidate
+	Leader
+)
+
 // A Go object implementing a single Raft peer.
 type Raft struct {
 	mu    sync.Mutex          // Lock to protect shared access to this peer's state
@@ -55,10 +64,21 @@ type Raft struct {
 	// state a Raft server must maintain.
 	// You may also need to add other state, as per your implementation.
 
-	currentTerm int
-	votedFor    *int
-	log         []LogEntry
-	commitIndex int
+	currentTerm      int
+	votedFor         int
+	log              []LogEntry
+	commitIndex      int
+	state            ServerState
+	votesReceived    map[int]bool
+	electionTimeout  int
+	electionCh       ElectionChan
+	heartbeatCh      chan bool // should change to AppendEntries Chan ?
+	heartBeatTimeout time.Duration
+}
+
+type ElectionChan struct {
+	ch     chan struct{}
+	closed uint32
 }
 
 type AppendEntriesArgs struct {
@@ -108,13 +128,12 @@ func (rf *Raft) sendHeartbeats() {
 
 func (rf *Raft) sendHeartbeat(server int) {
 	args := &AppendEntriesArgs{
-		Term:     rf.currentTerm,
-		LeaderId: rf.me,
+		Term:         rf.currentTerm,
+		LeaderId:     rf.me,
 		PrevLogIndex: 0,
-		PrevLogTerm: 0,
-		Entries: []LogEntry{},
+		PrevLogTerm:  0,
+		Entries:      []LogEntry{},
 		LeaderCommit: rf.commitIndex,
-
 
 		// other fields...
 	}
@@ -122,10 +141,9 @@ func (rf *Raft) sendHeartbeat(server int) {
 
 	ok := rf.peers[server].Call("Raft.AppendEntries", args, reply)
 	if ok {
-		
+
 	}
 }
-
 
 // return currentTerm and whether this server
 // believes it is the leader.
@@ -141,12 +159,17 @@ func (rf *Raft) GetState() (int, bool) {
 // field names must start with capital letters!
 type RequestVoteArgs struct {
 	// Your data here (2A, 2B).
+	Term        int
+	CandidateId int
 }
 
 // example RequestVote RPC reply structure.
 // field names must start with capital letters!
 type RequestVoteReply struct {
 	// Your data here (2A).
+	From        int
+	Term        int
+	VoteGranted bool
 }
 
 // example RequestVote RPC handler.
@@ -154,7 +177,127 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
 	// Read the fields in "args",
 	// and accordingly assign the values for fields in "reply".
+	reply.From = rf.me
+
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
+	currentTerm := rf.currentTerm
+	voteRequestTerm := args.Term
+	votedFor := rf.votedFor
+	candidateId := args.CandidateId
+
+	if voteRequestTerm > currentTerm {
+		// term is outdated, move forward to new term
+		rf.currentTerm = voteRequestTerm
+		rf.votedFor = -1 // forget node voted for in prev term
+		rf.state = Follower
+	}
+
+	if voteRequestTerm == currentTerm && (votedFor == -1 || votedFor == candidateId) {
+		// not voted yet OR already voted for that candidate
+		reply.VoteGranted = true
+		rf.votedFor = candidateId
+	} else {
+		// already voted for other candidate OR RequestVote is outdated
+		reply.VoteGranted = false
+		reply.Term = currentTerm
+		return
+	}
+
 }
+
+func (rf *Raft) StartElection() {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
+	if rf.state != Candidate {
+		// DPrintf("Not a Candidate. Fail to start election!\n")
+		return
+	}
+
+	rf.currentTerm += 1
+	rf.votedFor = rf.me
+	rf.votesReceived = make(map[int]bool)
+	rf.votesReceived[rf.me] = true
+	rf.electionCh.ch = make(chan struct{})
+	rf.electionCh.closed = 0
+
+	// Send RequestVote RPCs to all other servers
+	electionTerm := rf.currentTerm
+	for peer := range rf.peers {
+		if peer != rf.me {
+			// DPrintf("Term %d: Node %d sent RequestVote to node %d\n", rf.currentTerm, rf.me, peer)
+			go rf.SendRequestVoteToPeer(peer, electionTerm)
+		}
+	}
+
+	go rf.StartElectionTimer()
+}
+
+func (rf *Raft) StartElectionTimer() {
+	for {
+		select {
+		case <-rf.electionCh.ch:
+			// DPrintf("Term %d: New Leader has been elected\n", rf.currentTerm)
+			return
+		default:
+			time.Sleep(time.Duration(rf.electionTimeout) * time.Millisecond)
+
+			// election timeout, start new election
+			// DPrintf("Term %d: Election timeout elapsed, start new election\n", rf.currentTerm)
+			rf.StartElection()
+		}	
+	}
+}
+
+func (rf *Raft) CancelElectionTimer() {
+	if atomic.SwapUint32(&rf.electionCh.closed, 1) == 0 {
+		// Is there case where Election starts but SendRequestVoteToPeer routine in last term still exists ?
+        // Close the channel if it's not already closed
+        close(rf.electionCh.ch)
+    }
+}
+
+func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
+	args := RequestVoteArgs{Term: electionTerm, CandidateId: rf.me}
+	reply := RequestVoteReply{}
+
+	ok := rf.peers[peer].Call("Raft.RequestVote", args, reply)
+	if !ok {
+		// DPrintf("Term %d: Fail to send RequestVote from node %d to node %d\n", rf.currentTerm, rf.me, peer)
+		return
+	}
+
+	// Handle reply
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
+	voteReplyTerm := reply.Term
+	currentTerm := rf.currentTerm
+
+	/* NEED TO CHECK THIS! */
+	// if currentTerm != electionTerm {
+	// 	return
+	// }
+
+	if rf.state == Candidate && voteReplyTerm == currentTerm && reply.VoteGranted {
+		rf.votesReceived[reply.From] = true
+
+		if len(rf.votesReceived) > len(rf.peers)/2 {
+			// receive vote from majority of servers -> become Leader
+			rf.state = Leader
+			rf.CancelElectionTimer()
+			// DPrintf("Term %d: Node %d becomes Leader\n", rf.currentTerm, rf.me)
+		}
+	} else if voteReplyTerm > currentTerm {
+		rf.currentTerm = voteReplyTerm
+		rf.votedFor = -1 // forget node voted for in prev term
+		rf.state = Follower
+		rf.CancelElectionTimer()
+	}
+}
+
 
 // example code to send a RequestVote RPC to a server.
 // server is the index of the target server in rf.peers[].
@@ -229,6 +372,37 @@ func (rf *Raft) killed() bool {
 	return z == 1
 }
 
+func (rf *Raft) StartServer() {
+	for {
+		rf.mu.Lock()
+		state := rf.state
+		rf.mu.Unlock()
+
+		switch state {
+		case Follower:
+			select {
+				case <- rf.heartbeatCh:
+					//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
+				case <- time.After(rf.heartBeatTimeout):
+					rf.StartElection()
+			}
+		case Candidate:
+			select {
+			case <- rf.heartbeatCh:
+				//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
+				// rf.mu.Lock()
+				// rf.currentTerm = AppendEntriesArgs.Term
+				// rf.votedFor = -1 // forget node voted for in prev term
+				// rf.state = Follower
+				// rf.mu.Unlock()
+			}
+		case Leader:
+			// send heartbeat periodically
+		}
+	}
+}
+
+
 // the service or tester wants to create a Raft server. the ports
 // of all the Raft servers (including this one) are in peers[]. this
 // server's port is peers[me]. all the servers' peers[] arrays
@@ -242,14 +416,18 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		peers:       peers,
 		me:          me,
 		currentTerm: 0,
-		votedFor:    nil,
+		votedFor:    -1,
 		log:         make([]LogEntry, 0),
 		commitIndex: 0,
+		state:       Follower,
 	}
 	rf.peers = peers
 	rf.me = me
 
 	// Your initialization code here (2A, 2B).
+	/* choose HeartBeat Timeout and Election Timeout */
+
+	go rf.StartServer()
 
 	go rf.leaderLoop()
 
