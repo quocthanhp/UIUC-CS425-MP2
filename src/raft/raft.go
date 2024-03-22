@@ -403,6 +403,7 @@ func (rf *Raft) StartServer() {
 			}()
 
 			<-done
+			rf.state = Candidate
 			rf.StartElection()
 		case Candidate:
 			select {
