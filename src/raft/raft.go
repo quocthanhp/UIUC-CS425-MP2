@@ -98,6 +98,7 @@ type AppendEntriesReply struct {
 func (rf *Raft) AppendEntries(args AppendEntriesArgs, reply *AppendEntriesReply) {
 	reply.Success = true
 	reply.Term = rf.currentTerm
+	rf.lastHeartBeatTime = time.Now()
 }
 
 func (rf *Raft) leaderLoop() {
