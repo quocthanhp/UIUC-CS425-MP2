@@ -21,6 +21,7 @@ import "sync"
 import "sync/atomic"
 import "raft/labrpc"
 import "time"
+import "math/rand"
 
 //
 // as each Raft peer becomes aware that successive log entries are
@@ -70,9 +71,8 @@ type Raft struct {
 	commitIndex      int
 	state            ServerState
 	votesReceived    map[int]bool
-	electionTimeout  int
+	electionTimeout  float64
 	electionCh       ElectionChan
-	heartBeatTimeout time.Duration
 }
 
 type ElectionChan struct {
@@ -241,7 +241,7 @@ func (rf *Raft) StartElectionTimer() {
 			// DPrintf("Term %d: New Leader has been elected\n", rf.currentTerm)
 			return
 		default:
-			time.Sleep(time.Duration(rf.electionTimeout) * time.Millisecond)
+			time.Sleep(time.Duration(rf.electionTimeout) * time.Second)
 
 			// election timeout, start new election
 			// DPrintf("Term %d: Election timeout elapsed, start new election\n", rf.currentTerm)
@@ -380,25 +380,32 @@ func (rf *Raft) StartServer() {
 		switch state {
 		case Follower:
 			select {
-				case <- rf.heartbeatCh:
-					//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
-				case <- time.After(rf.heartBeatTimeout):
-					rf.StartElection()
+				// case <- rf.heartbeatCh:
+				// 	//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
+				// case <- time.After(rf.heartBeatTimeout):
+				// 	rf.StartElection()
 			}
 		case Candidate:
 			select {
-			case <- rf.heartbeatCh:
-				//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
-				// rf.mu.Lock()
-				// rf.currentTerm = AppendEntriesArgs.Term
-				// rf.votedFor = -1 // forget node voted for in prev term
-				// rf.state = Follower
-				// rf.mu.Unlock()
+			// case <- rf.heartbeatCh:
+			// 	//DPrintf("Term %d: Received hearbeat from Leader", rf.currentTerm)
+			// 	// rf.mu.Lock()
+			// 	// rf.currentTerm = AppendEntriesArgs.Term
+			// 	// rf.votedFor = -1 // forget node voted for in prev term
+			// 	// rf.state = Follower
+			// 	// rf.mu.Unlock()
 			}
 		}
 	}
 }
 
+func getRandomTimer() float64 {
+	source := rand.NewSource(time.Now().UnixNano())
+	random := rand.New(source)
+	randomTimer := 0.5 + random.Float64()*0.5
+
+	return randomTimer
+}
 
 // the service or tester wants to create a Raft server. the ports
 // of all the Raft servers (including this one) are in peers[]. this
@@ -417,6 +424,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		log:         make([]LogEntry, 0),
 		commitIndex: 0,
 		state:       Follower,
+		electionTimeout: getRandomTimer(),
 	}
 	rf.peers = peers
 	rf.me = me
