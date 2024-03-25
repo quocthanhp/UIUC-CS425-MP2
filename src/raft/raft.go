@@ -65,22 +65,15 @@ type Raft struct {
 	// state a Raft server must maintain.
 	// You may also need to add other state, as per your implementation.
 
-	currentTerm       int
-	votedFor          int
-	log               []LogEntry
-	commitIndex       int
-	state             ServerState
-	votesReceived     map[int]bool
-	electionTimeout   float64
-	//electionCh        ElectionChan
-	heartbeatCh		  chan AppendEntriesArgs
-	//lastHeartBeatTime time.Time
-	leaderAlive		  bool
-}
-
-type ElectionChan struct {
-	ch     chan struct{}
-	closed uint32
+	currentTerm     int
+	votedFor        int
+	log             []LogEntry
+	commitIndex     int
+	state           ServerState
+	votesReceived   map[int]bool
+	electionTimeout float64
+	heartbeatCh		chan AppendEntriesArgs
+	leaderAlive     bool
 }
 
 type AppendEntriesArgs struct {
@@ -448,7 +441,6 @@ func getRandomTimer() float64 {
 func getCurrentTime() float64 {
 	return float64(time.Now().UnixNano()) / 1_000_000_000.0 
 }
-
 
 // the service or tester wants to create a Raft server. the ports
 // of all the Raft servers (including this one) are in peers[]. this
