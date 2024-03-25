@@ -94,7 +94,7 @@ func (rf *Raft) AppendEntries(args AppendEntriesArgs, reply *AppendEntriesReply)
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 
-	/* HANDLE NETWORK FAILURE AND OLD LEADER STILL ASSUMME IT IS STILL LEADER */
+	/* HANDLE NETWORK FAILURE WHERE OLD LEADER STILL ASSUMES IT IS STILL LEADER */
 	if (args.Term < rf.currentTerm) {
 		reply.Success = false
 		reply.Term = rf.currentTerm
@@ -149,7 +149,7 @@ func (rf *Raft) sendHeartbeat(server int) {
 
 	}
 
-	/* HANDLE NETWORK FAILURE AND OLD LEADER STILL ASSUMME IT IS STILL LEADER */
+	/* HANDLE NETWORK FAILURE WHERE OLD LEADER STILL ASSUMES IT IS STILL LEADER */
 	if (!reply.Success) {
 		rf.mu.Lock()
 		defer rf.mu.Unlock()
