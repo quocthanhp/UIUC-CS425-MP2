@@ -132,6 +132,9 @@ func (rf *Raft) LeaderLoop() {
 }
 
 func (rf *Raft) sendHeartbeat(server int) {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
 	args := AppendEntriesArgs{
 		Term:         rf.currentTerm,
 		LeaderId:     rf.me,
@@ -145,19 +148,18 @@ func (rf *Raft) sendHeartbeat(server int) {
 	reply := &AppendEntriesReply{}
 
 	ok := rf.peers[server].Call("Raft.AppendEntries", args, reply)
-	if ok {
-
+	if !ok {
+		DPrintf("Term %d: Leader %d fails to send hb to node %d\n", rf.currentTerm, rf.me, server)
+		return
 	}
 
 	/* HANDLE NETWORK FAILURE WHERE OLD LEADER STILL ASSUMES IT IS STILL LEADER */
 	if (!reply.Success) {
-		rf.mu.Lock()
-		defer rf.mu.Unlock()
-
 		rf.currentTerm = reply.Term
         rf.votedFor = -1 // forget node voted for in previous term
         rf.state = Follower
         rf.leaderAlive = false // for election timeout
+		DPrintf("Term %d: Leader %d downgrades to Follower\n", rf.currentTerm, rf.me)
 	}
 }
 
@@ -195,7 +197,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
 	// Read the fields in "args",
 	// and accordingly assign the values for fields in "reply".
-	//DPrintf("Term: %d: Node %d receive reqVote from node %d\n", rf.currentTerm, rf.me, args.CandidateId)
+	DPrintf("Term %d: Node %d receive reqVote from node %d\n", rf.currentTerm, rf.me, args.CandidateId)
 	reply.From = rf.me
 
 	rf.mu.Lock()
@@ -216,13 +218,13 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.VoteGranted = true
 		reply.Term = voteRequestTerm
 		rf.votedFor = candidateId
-		//DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm,rf.me, candidateId)
+		DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm,rf.me, candidateId)
 	} else {
 		// already voted for other candidate OR RequestVote is outdated
-		//DPrintf("Term %d: Node %d already voted for node %d\n", rf.currentTerm, rf.me, rf.votedFor)
+		DPrintf("Term %d: Node %d already voted for node %d\n", rf.currentTerm, rf.me, rf.votedFor)
 		reply.VoteGranted = false
 		reply.Term = rf.currentTerm
-		//DPrintf("Term %d: Node %d did not get voted by node %d\n", rf.currentTerm, candidateId, rf.me)
+		DPrintf("Term %d: Node %d did not get voted by node %d\n", rf.currentTerm, candidateId, rf.me)
 		return
 	}
 }
@@ -232,7 +234,7 @@ func (rf *Raft) StartElection() {
 	defer rf.mu.Unlock()
 
 	if rf.state != Candidate {
-		//DPrintf("Not a Candidate. Fail to start election!\n")
+		DPrintf("Not a Candidate. Fail to start election!\n")
 		return
 	}
 
@@ -245,7 +247,7 @@ func (rf *Raft) StartElection() {
 	electionTerm := rf.currentTerm
 	for peer := range rf.peers {
 		if peer != rf.me {
-			//DPrintf("Term %d: Node %d sent RequestVote to node %d\n", rf.currentTerm, rf.me, peer)
+			DPrintf("Term %d: Node %d sent RequestVote to node %d\n", rf.currentTerm, rf.me, peer)
 			go rf.SendRequestVoteToPeer(peer, electionTerm)
 		}
 	}
@@ -259,7 +261,7 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 
 	ok := rf.peers[peer].Call("Raft.RequestVote", &args, &reply)
 	if !ok {
-		//DPrintf("Term %d: Fail to send RequestVote from node %d to node %d\n", rf.currentTerm, rf.me, peer)
+		DPrintf("Term %d: Fail to send RequestVote from node %d to node %d\n", rf.currentTerm, rf.me, peer)
 		return
 	}
 
@@ -271,20 +273,20 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 	currentTerm := rf.currentTerm
 
 	/* NEED TO CHECK THIS! */
-	// if currentTerm != electionTerm {
-	// 	return
-	// }
+	if currentTerm != electionTerm {
+		return
+	}
 
 	if rf.state == Candidate && voteReplyTerm == currentTerm && reply.VoteGranted {
-		//DPrintf("Term %d: Node %d get vote from node %d\n", rf.currentTerm, rf.me, reply.From)
+		DPrintf("Term %d: Node %d got vote from node %d\n", rf.currentTerm, rf.me, reply.From)
 		rf.votesReceived[reply.From] = true
-		//DPrintf("Term %d: Node %d : votes Received = %d, majority = %d\n", rf.currentTerm, rf.me, len(rf.votesReceived), len(rf.peers) / 2)
+		DPrintf("Term %d: Node %d : received votes = %d, majority = %d\n", rf.currentTerm, rf.me, len(rf.votesReceived), len(rf.peers) / 2)
 
 		if len(rf.votesReceived) > len(rf.peers)/2 {
 			// receive vote from majority of servers -> become Leader
 			rf.state = Leader
 			go rf.LeaderLoop()
-			//DPrintf("Term %d: Node %d becomes Leader\n", rf.currentTerm, rf.me)
+			DPrintf("Term %d: Node %d becomes Leader\n", rf.currentTerm, rf.me)
 		}
 	} else if voteReplyTerm > currentTerm {
 		rf.currentTerm = voteReplyTerm
@@ -298,9 +300,10 @@ func (rf *Raft) CandidateLoop() {
 	for {
         select {
         case args := <- rf.heartbeatCh:
-            //DPrintf("Term %d: node %d Received heartbeat from Leader\n", rf.me, rf.currentTerm)
             rf.mu.Lock()
             defer rf.mu.Unlock()
+
+			DPrintf("Term %d: Candidate node %d Received heartbeat from Leader, downgrade to Follower\n", rf.me, rf.currentTerm)
 
             rf.currentTerm = args.Term
             rf.votedFor = -1 // forget node voted for in previous term
@@ -318,23 +321,25 @@ func (rf *Raft) StartElectionTimer() {
 		rf.mu.Lock()
 
 		if (rf.leaderAlive) {
+			rf.leaderAlive = false
 			rf.mu.Unlock()
 			continue
 		}
 
 		// election timeout, start new election
-		//DPrintf("Term %d: Election timeout elapsed at %f, node %d start new election\n", rf.currentTerm, getCurrentTime(), rf.me)
+		DPrintf("Term %d: Election timeout elapsed at %f, node %d start new election\n", rf.currentTerm, getCurrentTime(), rf.me)
 		rf.state = Candidate
-		rf.leaderAlive = false
-
+		//rf.leaderAlive = false
+		go rf.StartElection()
 		rf.mu.Unlock()
-		rf.StartElection()
+		
 	}
 }
 
 func (rf *Raft) CancelElectionTimer() {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
+	rf.votedFor = -1
 	rf.leaderAlive = true
 }
 
@@ -420,13 +425,14 @@ func (rf *Raft) StartServer() {
 		rf.mu.Lock()
 		state := rf.state
 		rf.mu.Unlock()
-
-		if (state == Follower) {
+		
+		if state == Follower {
 			select {
-			case <- rf.heartbeatCh:
+			case args := <- rf.heartbeatCh:
+				DPrintf("Term %d: Node %d receives hb from leader %d\n", rf.currentTerm, rf.me, args.LeaderId)
 				rf.CancelElectionTimer()
 			}
-		}
+		} 
 	}
 }
 
