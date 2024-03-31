@@ -118,13 +118,14 @@ func (rf *Raft) LeaderLoop() {
 	for {
 		rf.mu.Lock()
 		state := rf.state
+		leaderTerm := rf.currentTerm
 		rf.mu.Unlock()
 
 		if (state == Leader) {
 			DPrintf("Term %d: Node %d starts sending hb\n", rf.currentTerm, rf.me)
 			for peer := range rf.peers {
 				if peer != rf.me {
-					go rf.sendHeartbeat(peer)
+					go rf.sendHeartbeat(peer, leaderTerm)
 				}
 			}
 			time.Sleep(time.Duration(HeartbeatInterval) * time.Millisecond)
@@ -134,12 +135,9 @@ func (rf *Raft) LeaderLoop() {
 	}
 }
 
-func (rf *Raft) sendHeartbeat(server int) {
-	rf.mu.Lock()
-	defer rf.mu.Unlock()
-
+func (rf *Raft) sendHeartbeat(server int, leaderTerm int) {
 	args := AppendEntriesArgs{
-		Term:         rf.currentTerm,
+		Term:         leaderTerm,
 		LeaderId:     rf.me,
 		PrevLogIndex: 0,
 		PrevLogTerm:  0,
@@ -155,6 +153,9 @@ func (rf *Raft) sendHeartbeat(server int) {
 		DPrintf("Term %d: Leader %d fails to send hb to node %d\n", rf.currentTerm, rf.me, server)
 		return
 	}
+
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
 
 	/* HANDLE NETWORK FAILURE WHERE OLD LEADER STILL ASSUMES IT IS STILL LEADER */
 	if (reply.Success == false) {
