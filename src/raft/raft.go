@@ -64,22 +64,30 @@ type Raft struct {
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
 	// You may also need to add other state, as per your implementation.
-
+	/* Part 2A */
 	currentTerm     int
 	votedFor        int
-	log             []LogEntry
-	commitIndex     int
 	state           ServerState
 	votesReceived   map[int]bool
 	electionTimeout float64
 	heartbeatCh     chan *AppendEntriesArgs
 	electionCh      chan bool
 	leaderAlive     bool
+
+	/* Part 2B */
+	log         []LogEntry
+	commitIndex int // index of highest log entry known to be committed
+	lastApplied	int
+	nextIndex	[]int // index of next log entry
+	matchIndex  []int // index of highest log entry known to be replicated
+	applyCh     chan ApplyMsg
 }
 
 type AppendEntriesArgs struct {
 	Term         int
 	LeaderId     int
+	
+	/* Part 2B */
 	PrevLogIndex int
 	PrevLogTerm  int
 	Entries      []LogEntry
@@ -188,6 +196,10 @@ type RequestVoteArgs struct {
 	// Your data here (2A, 2B).
 	Term        int
 	CandidateId int
+
+	/* Part 2B */
+	LastLogIndex int
+	LastLogTerm  int
 }
 
 // example RequestVote RPC reply structure.
