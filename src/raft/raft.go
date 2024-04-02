@@ -31,7 +31,7 @@ import "math/rand"
 // committed log entry.
 //
 
-const HeartbeatInterval = 100 
+const HeartbeatInterval = 100
 
 type ApplyMsg struct {
 	CommandValid bool
@@ -72,8 +72,8 @@ type Raft struct {
 	state           ServerState
 	votesReceived   map[int]bool
 	electionTimeout float64
-	heartbeatCh		chan *AppendEntriesArgs
-	electionCh		chan bool
+	heartbeatCh     chan *AppendEntriesArgs
+	electionCh      chan bool
 	leaderAlive     bool
 }
 
@@ -95,6 +95,8 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 
+	rf.heartbeatCh <- args
+
 	/* HANDLE NETWORK FAILURE WHERE OLD LEADER STILL ASSUMES IT IS STILL LEADER */
 	if args.Term < rf.currentTerm {
 		DPrintf("Term %d: Node %d received HB from old leader %d!\n", rf.currentTerm, rf.me, args.LeaderId)
@@ -111,7 +113,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 
 	reply.Success = true
 	reply.Term = rf.currentTerm
-	rf.heartbeatCh <- args
+	
 }
 
 func (rf *Raft) LeaderLoop() {
@@ -121,7 +123,7 @@ func (rf *Raft) LeaderLoop() {
 		leaderTerm := rf.currentTerm
 		rf.mu.Unlock()
 
-		if (state == Leader) {
+		if state == Leader {
 			DPrintf("Term %d: Node %d starts sending hb\n", rf.currentTerm, rf.me)
 			for peer := range rf.peers {
 				if peer != rf.me {
@@ -158,11 +160,12 @@ func (rf *Raft) sendHeartbeat(server int, leaderTerm int) {
 	defer rf.mu.Unlock()
 
 	/* HANDLE NETWORK FAILURE WHERE OLD LEADER STILL ASSUMES IT IS STILL LEADER */
-	if (reply.Success == false) {
+	if reply.Success == false {
 		rf.currentTerm = reply.Term
-        rf.votedFor = -1 // forget node voted for in previous term
-        rf.state = Follower
+		rf.votedFor = -1 // forget node voted for in previous term
+		rf.state = Follower
 		rf.votesReceived = map[int]bool{}
+		go rf.StartServer()
 		DPrintf("Term %d: Leader %d downgrades to Follower\n", rf.currentTerm, rf.me)
 	}
 }
@@ -217,13 +220,13 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		rf.votedFor = -1 // forget node voted for in prev term
 		rf.state = Follower
 	}
-	
+
 	if voteRequestTerm == rf.currentTerm && (rf.votedFor == -1 || rf.votedFor == candidateId) {
 		// not voted yet OR already voted for that candidate
 		reply.VoteGranted = true
 		reply.Term = voteRequestTerm
 		rf.votedFor = candidateId
-		DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm,rf.me, candidateId)
+		DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm, rf.me, candidateId)
 	} else {
 		// already voted for other candidate OR RequestVote is outdated
 		DPrintf("Term %d: Node %d already voted for node %d/or ReqVote outdated\n", rf.currentTerm, rf.me, rf.votedFor)
@@ -250,7 +253,7 @@ func (rf *Raft) StartElection() {
 
 	// To restart timer ???
 	rf.leaderAlive = true
-	
+
 	// Send RequestVote RPCs to all other servers
 	electionTerm := rf.currentTerm
 	for peer := range rf.peers {
@@ -288,7 +291,7 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 	if rf.state == Candidate && voteReplyTerm == currentTerm && reply.VoteGranted {
 		DPrintf("Term %d: Node %d got vote from node %d\n", rf.currentTerm, rf.me, reply.From)
 		rf.votesReceived[reply.From] = true
-		DPrintf("Term %d: Node %d : received votes = %d, majority = %d\n", rf.currentTerm, rf.me, len(rf.votesReceived), len(rf.peers) / 2)
+		DPrintf("Term %d: Node %d : received votes = %d, majority = %d\n", rf.currentTerm, rf.me, len(rf.votesReceived), len(rf.peers)/2)
 
 		if len(rf.votesReceived) > len(rf.peers)/2 {
 			// receive vote from majority of servers -> become Leader
@@ -301,7 +304,7 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 		rf.currentTerm = voteReplyTerm
 		rf.votedFor = -1 // forget node voted for in prev term
 		rf.state = Follower
-		
+
 		/* CHECK THIS !!!!!!!!*/
 		rf.leaderAlive = true
 	}
@@ -313,9 +316,9 @@ func (rf *Raft) CandidateLoop() {
 		state := rf.state
 		rf.mu.Unlock()
 
-		if (state == Candidate) {
+		if state == Candidate {
 			select {
-			case args := <- rf.heartbeatCh:
+			case args := <-rf.heartbeatCh:
 				rf.mu.Lock()
 				defer rf.mu.Unlock()
 
@@ -327,31 +330,32 @@ func (rf *Raft) CandidateLoop() {
 
 				/* CHECK THIS !!!!!!!!*/
 				rf.leaderAlive = true
+				go rf.StartServer()
 				return
-			case electionActive := <- rf.electionCh:
-				if (!electionActive) {
+			case electionActive := <-rf.electionCh:
+				if !electionActive {
 					return
 				}
 			}
 		} else {
 			return
 		}
-    }
+	}
 }
 
 func (rf *Raft) StartElectionTimer() {
 	for {
-		time.Sleep(time.Duration((rf.electionTimeout) * 1000) * time.Millisecond)
+		time.Sleep(time.Duration((rf.electionTimeout)*1000) * time.Millisecond)
 
 		rf.mu.Lock()
 
-		if (rf.state == Leader) {
+		if rf.state == Leader {
 			rf.mu.Unlock()
 			//rf.leaderAlive = true
-			continue
+			return
 		}
 
-		if (rf.leaderAlive) {
+		if rf.leaderAlive {
 			rf.leaderAlive = false
 			rf.mu.Unlock()
 			continue
@@ -359,12 +363,12 @@ func (rf *Raft) StartElectionTimer() {
 
 		// election timeout, start new election
 		DPrintf("Term %d: Election timeout elapsed at %f, node %d start new election\n", rf.currentTerm, getCurrentTime(), rf.me)
-		
-		if (rf.state == Candidate) {
+
+		if rf.state == Candidate {
 			// remove all old candidates
 			rf.electionCh <- false
 		}
-		
+
 		rf.state = Candidate
 		go rf.StartElection()
 		rf.mu.Unlock()
@@ -451,30 +455,32 @@ func (rf *Raft) StartServer() {
 		rf.mu.Lock()
 		state := rf.state
 		rf.mu.Unlock()
-		
+
 		if state == Follower {
 			select {
-			case args := <- rf.heartbeatCh:
+			case args := <-rf.heartbeatCh:
 				rf.mu.Lock()
 				DPrintf("Term %d: Node %d receives hb from leader %d\n", rf.currentTerm, rf.me, args.LeaderId)
 				rf.leaderAlive = true
 				rf.mu.Unlock()
 				DPrintf("Reset timer\n")
 			}
-		} 
+		} else {
+			return
+		}
 	}
 }
 
 func getRandomTimer() float64 {
-    // Generate a random float64 between 0 and 0.5, then add 0.5 to it
+	// Generate a random float64 between 0 and 0.5, then add 0.5 to it
 	rand.Seed(time.Now().UnixNano())
-    randomNum := rand.Float64()*0.5 + 0.5
+	randomNum := rand.Float64()*0.5 + 0.5
 
 	return randomNum
 }
 
 func getCurrentTime() float64 {
-	return float64(time.Now().UnixNano()) / 1_000_000_000.0 
+	return float64(time.Now().UnixNano()) / 1_000_000_000.0
 }
 
 // the service or tester wants to create a Raft server. the ports
@@ -495,9 +501,9 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		commitIndex:     0,
 		state:           Follower,
 		electionTimeout: getRandomTimer(),
-		heartbeatCh: 	 make(chan *AppendEntriesArgs),
+		heartbeatCh:     make(chan *AppendEntriesArgs),
 		leaderAlive:     false,
-		electionCh: 	 make(chan bool),
+		electionCh:      make(chan bool),
 	}
 
 	//DPrintf("Node %d, timeout %f\n", rf.me, rf.electionTimeout)
