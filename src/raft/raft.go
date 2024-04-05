@@ -17,11 +17,13 @@ package raft
 //   in the same server.
 //
 
-import "sync"
-import "sync/atomic"
-import "raft/labrpc"
-import "time"
-import "math/rand"
+import (
+	"math/rand"
+	"raft/labrpc"
+	"sync"
+	"sync/atomic"
+	"time"
+)
 
 //
 // as each Raft peer becomes aware that successive log entries are
@@ -138,7 +140,11 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 				rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
 				DPrintf("Follower %d apply command %d at %d\n", rf.me, e.Command, e.Index)
 			}
-		}
+		} // else {
+		// 	reply.Success = false
+		// 	reply.Term = rf.currentTerm
+		// 	return
+		// }
 	}
 
 	reply.Success = true
@@ -221,9 +227,15 @@ func (rf *Raft) sendAppendEntries(server int, args AppendEntriesArgs) {
 	reply := AppendEntriesReply{}
 
 	ok := rf.peers[server].Call("Raft.AppendEntries", &args, &reply)
-	if !ok {
-		DPrintf("Term %d: Leader %d fails to send hb to node %d\n", rf.currentTerm, rf.me, server)
-		return
+	for !ok {
+		if len(args.Entries) > 0 {
+			rf.nextIndex[server] -= 1
+			ok = rf.peers[server].Call("Raft.AppendEntries", &args, &reply)
+			
+		} else {
+			DPrintf("Term %d: Leader %d fails to send hb to node %d\n", rf.currentTerm, rf.me, server)
+			return
+		}
 	}
 
 	rf.mu.Lock()
@@ -246,7 +258,7 @@ func (rf *Raft) sendAppendEntries(server int, args AppendEntriesArgs) {
 	}
 
 	// check majority of replication
-	ack := 0
+	ack := 1
 	if (isReplicated) {
 		for peer := range rf.peers {
 			if (peer != rf.me) {
@@ -256,7 +268,6 @@ func (rf *Raft) sendAppendEntries(server int, args AppendEntriesArgs) {
 			}
 		}
 	}
-	
 	if isReplicated && ack > len(rf.peers)/2 {
 		for _, e := range args.Entries {
 			rf.commitIndex++;

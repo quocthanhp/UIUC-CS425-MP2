@@ -1,0 +1,1930 @@
+warning: only one CPU, which may conceal locking bugs
+Test (2A): initial election ...
+2024/03/26 16:15:52 Term 0: Election timeout elapsed at 1711487752.632191, node 2 start new election
+2024/03/26 16:15:52 Term 1: Node 2 sent RequestVote to node 0
+2024/03/26 16:15:52 Term 1: Node 2 sent RequestVote to node 1
+2024/03/26 16:15:52 Term 0: Node 0 receive reqVote from node 2
+2024/03/26 16:15:52 Term 1: Node 0 voted for node 2
+2024/03/26 16:15:52 Term 1: Node 2 got vote from node 0
+2024/03/26 16:15:52 Term 1: Node 2 : received votes = 2, majority = 1
+2024/03/26 16:15:52 Term 1: Node 2 becomes Leader
+2024/03/26 16:15:52 Term 0: Node 1 receive reqVote from node 2
+2024/03/26 16:15:52 Term 1: Node 1 voted for node 2
+2024/03/26 16:15:52 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:52 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:52 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:52 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:52 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:52 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:52 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:52 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:53 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:54 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Node 0 receives hb from leader 2
+  ... Passed --   3.5  3   56   14420    0
+Test (2A): election after network failure ...
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:55 Term 0: Election timeout elapsed at 1711487755.858531, node 2 start new election
+2024/03/26 16:15:55 Term 1: Node 2 sent RequestVote to node 0
+2024/03/26 16:15:55 Term 1: Node 2 sent RequestVote to node 1
+2024/03/26 16:15:55 Term 0: Node 0 receive reqVote from node 2
+2024/03/26 16:15:55 Term 1: Node 0 voted for node 2
+2024/03/26 16:15:55 Term 1: Node 2 got vote from node 0
+2024/03/26 16:15:55 Term 1: Node 2 : received votes = 2, majority = 1
+2024/03/26 16:15:55 Term 1: Node 2 becomes Leader
+2024/03/26 16:15:55 Term 0: Node 1 receive reqVote from node 2
+2024/03/26 16:15:55 Term 1: Node 1 voted for node 2
+2024/03/26 16:15:55 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:55 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:55 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:55 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:56 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:56 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Node 1 receives hb from leader 2
+2024/03/26 16:15:56 Term 1: Node 0 receives hb from leader 2
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Election timeout elapsed at 1711487756.682864, node 0 start new election
+2024/03/26 16:15:56 Term 2: Node 0 sent RequestVote to node 1
+2024/03/26 16:15:56 Term 2: Node 0 sent RequestVote to node 2
+2024/03/26 16:15:56 Term 2: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:15:56 Term 2: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:56 Term 1: Election timeout elapsed at 1711487756.929221, node 1 start new election
+2024/03/26 16:15:56 Term 2: Node 1 sent RequestVote to node 0
+2024/03/26 16:15:56 Term 2: Node 1 sent RequestVote to node 2
+2024/03/26 16:15:56 Term 2: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:15:56 Term 2: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:56 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Election timeout elapsed at 1711487757.484547, node 1 start new election
+2024/03/26 16:15:57 Term 2: Node 1 sent RequestVote to node 0
+2024/03/26 16:15:57 Term 2: Node 1 sent RequestVote to node 2
+2024/03/26 16:15:57 Term 1: Node 0 receive reqVote from node 1
+2024/03/26 16:15:57 Term 2: Node 0 voted for node 1
+2024/03/26 16:15:57 Term 2: Node 1 got vote from node 0
+2024/03/26 16:15:57 Term 2: Node 1 : received votes = 2, majority = 1
+2024/03/26 16:15:57 Term 2: Node 1 becomes Leader
+2024/03/26 16:15:57 Term 2: Election timeout elapsed at 1711487757.486929, node 0 start new election
+2024/03/26 16:15:57 Term 3: Node 0 sent RequestVote to node 1
+2024/03/26 16:15:57 Term 3: Node 0 sent RequestVote to node 2
+2024/03/26 16:15:57 Term 3: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:15:57 Term 3: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 2: Election timeout elapsed at 1711487757.775148, node 1 start new election
+2024/03/26 16:15:57 Term 3: Node 1 sent RequestVote to node 0
+2024/03/26 16:15:57 Term 3: Node 1 sent RequestVote to node 2
+2024/03/26 16:15:57 Term 3: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:15:57 Term 3: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:57 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 3: Election timeout elapsed at 1711487758.291279, node 0 start new election
+2024/03/26 16:15:58 Term 4: Node 0 sent RequestVote to node 1
+2024/03/26 16:15:58 Term 4: Node 0 sent RequestVote to node 2
+2024/03/26 16:15:58 Term 4: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:15:58 Term 4: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 3: Election timeout elapsed at 1711487758.620562, node 1 start new election
+2024/03/26 16:15:58 Term 4: Node 1 sent RequestVote to node 0
+2024/03/26 16:15:58 Term 4: Node 1 sent RequestVote to node 2
+2024/03/26 16:15:58 Term 4: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:15:58 Term 4: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 2: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:58 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 4: Election timeout elapsed at 1711487759.095889, node 0 start new election
+2024/03/26 16:15:59 Term 5: Node 0 sent RequestVote to node 1
+2024/03/26 16:15:59 Term 5: Node 0 sent RequestVote to node 2
+2024/03/26 16:15:59 Term 5: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:15:59 Term 5: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 4: Election timeout elapsed at 1711487759.466043, node 1 start new election
+2024/03/26 16:15:59 Term 5: Node 1 sent RequestVote to node 0
+2024/03/26 16:15:59 Term 5: Node 1 sent RequestVote to node 2
+2024/03/26 16:15:59 Term 5: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:15:59 Term 5: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:15:59 Term 5: Election timeout elapsed at 1711487759.900084, node 0 start new election
+2024/03/26 16:15:59 Term 6: Node 0 sent RequestVote to node 1
+2024/03/26 16:15:59 Term 6: Node 0 sent RequestVote to node 2
+2024/03/26 16:15:59 Term 6: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:15:59 Term 6: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:15:59 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 5: Election timeout elapsed at 1711487760.311613, node 1 start new election
+2024/03/26 16:16:00 Term 6: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:00 Term 6: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:00 Term 6: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:00 Term 6: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 6: Election timeout elapsed at 1711487760.704619, node 0 start new election
+2024/03/26 16:16:00 Term 7: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:00 Term 7: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:00 Term 7: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:00 Term 7: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:00 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 6: Election timeout elapsed at 1711487761.157300, node 1 start new election
+2024/03/26 16:16:01 Term 7: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:01 Term 7: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:01 Term 7: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:01 Term 7: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 7: Election timeout elapsed at 1711487761.508902, node 0 start new election
+2024/03/26 16:16:01 Term 8: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:01 Term 8: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:01 Term 8: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:01 Term 8: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:01 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 7: Election timeout elapsed at 1711487762.002991, node 1 start new election
+2024/03/26 16:16:02 Term 8: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:02 Term 8: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:02 Term 8: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:02 Term 8: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 8: Election timeout elapsed at 1711487762.313313, node 0 start new election
+2024/03/26 16:16:02 Term 9: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:02 Term 9: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:02 Term 9: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:02 Term 9: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 8: Election timeout elapsed at 1711487762.848468, node 1 start new election
+2024/03/26 16:16:02 Term 9: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:02 Term 9: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:02 Term 9: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:02 Term 9: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:02 Term 2: Leader 1 fails to send hb to node 2
+2024/03/26 16:16:02 Term 2: Node 0 receives hb from leader 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:02 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 9: Election timeout elapsed at 1711487763.117404, node 0 start new election
+2024/03/26 16:16:03 Term 10: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:03 Term 10: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:03 Term 10: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:03 Term 10: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 2: Leader 1 fails to send hb to node 2
+2024/03/26 16:16:03 aaa
+2024/03/26 16:16:03 bbb
+2024/03/26 16:16:03 Term 2: Node 0 receives hb from leader 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 9: Election timeout elapsed at 1711487763.694400, node 1 start new election
+2024/03/26 16:16:03 Term 10: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:03 Term 10: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:03 Term 10: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:03 Term 10: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:03 Term 10: Election timeout elapsed at 1711487763.922290, node 0 start new election
+2024/03/26 16:16:03 Term 11: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:03 Term 11: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:03 Term 11: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:03 Term 11: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:03 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 10: Election timeout elapsed at 1711487764.539860, node 1 start new election
+2024/03/26 16:16:04 Term 11: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:04 Term 11: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:04 Term 11: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:04 Term 11: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 11: Election timeout elapsed at 1711487764.726927, node 0 start new election
+2024/03/26 16:16:04 Term 12: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:04 Term 12: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:04 Term 12: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:04 Term 12: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:04 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 2: Election timeout elapsed at 1711487765.105203, node 0 start new election
+2024/03/26 16:16:05 Term 3: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:05 Term 3: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:05 Term 2: Node 1 receive reqVote from node 0
+2024/03/26 16:16:05 Term 1: Node 2 receive reqVote from node 0
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 2: Leader 1 fails to send hb to node 2
+2024/03/26 16:16:05 Term 3: Leader 1 downgrades to Follower
+2024/03/26 16:16:05 Term 3: Leader 2 downgrades to Follower
+2024/03/26 16:16:05 Term 3: Node 2 voted for node 0
+2024/03/26 16:16:05 Term 3: Node 0 got vote from node 2
+2024/03/26 16:16:05 Term 3: Node 0 : received votes = 2, majority = 1
+2024/03/26 16:16:05 Term 3: Node 0 becomes Leader
+2024/03/26 16:16:05 Term 3: Node 1 voted for node 0
+2024/03/26 16:16:05 Term 3: Node 0 receives hb from leader 2
+2024/03/26 16:16:05 Term 3: Node 2 receives hb from leader 0
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 3: Node 1 receives hb from leader 0
+2024/03/26 16:16:05 Term 11: Election timeout elapsed at 1711487765.389640, node 1 start new election
+2024/03/26 16:16:05 Term 12: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:05 Term 12: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:05 Term 12: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:05 Term 12: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:05 Term 3: Candidate node 2 Received heartbeat from Leader, downgrade to Follower
+2024/03/26 16:16:05 Term 3: Candidate node 1 Received heartbeat from Leader, downgrade to Follower
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 12: Election timeout elapsed at 1711487765.531484, node 0 start new election
+2024/03/26 16:16:05 Term 13: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:05 Term 13: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:05 Term 13: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:05 Term 13: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:05 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 12: Election timeout elapsed at 1711487766.235080, node 1 start new election
+2024/03/26 16:16:06 Term 13: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:06 Term 13: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:06 Term 13: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:06 Term 13: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 13: Election timeout elapsed at 1711487766.335646, node 0 start new election
+2024/03/26 16:16:06 Term 14: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:06 Term 14: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:06 Term 14: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:06 Term 14: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:06 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 13: Election timeout elapsed at 1711487767.080812, node 1 start new election
+2024/03/26 16:16:07 Term 14: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:07 Term 14: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:07 Term 14: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:07 Term 14: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 14: Election timeout elapsed at 1711487767.140416, node 0 start new election
+2024/03/26 16:16:07 Term 15: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:07 Term 15: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:07 Term 15: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:07 Term 15: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:07 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:07 Term 14: Election timeout elapsed at 1711487767.926888, node 1 start new election
+2024/03/26 16:16:07 Term 15: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:07 Term 15: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:07 Term 15: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:07 Term 15: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:07 Term 15: Election timeout elapsed at 1711487767.945136, node 0 start new election
+2024/03/26 16:16:07 Term 16: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:07 Term 16: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:07 Term 16: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:07 Term 16: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 16: Election timeout elapsed at 1711487768.749713, node 0 start new election
+2024/03/26 16:16:08 Term 17: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:08 Term 17: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:08 Term 17: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:08 Term 17: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:08 Term 15: Election timeout elapsed at 1711487768.771963, node 1 start new election
+2024/03/26 16:16:08 Term 16: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:08 Term 16: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:08 Term 16: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:08 Term 16: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:08 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 17: Election timeout elapsed at 1711487769.554698, node 0 start new election
+2024/03/26 16:16:09 Term 18: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:09 Term 18: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:09 Term 18: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:09 Term 18: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:09 Term 16: Election timeout elapsed at 1711487769.617936, node 1 start new election
+2024/03/26 16:16:09 Term 17: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:09 Term 17: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:09 Term 17: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:09 Term 17: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:09 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 18: Election timeout elapsed at 1711487770.359156, node 0 start new election
+2024/03/26 16:16:10 Term 19: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:10 Term 19: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:10 Term 19: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:10 Term 19: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 17: Election timeout elapsed at 1711487770.463739, node 1 start new election
+2024/03/26 16:16:10 Term 18: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:10 Term 18: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:10 Term 18: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:10 Term 18: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:10 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 19: Election timeout elapsed at 1711487771.163211, node 0 start new election
+2024/03/26 16:16:11 Term 20: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:11 Term 20: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:11 Term 20: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:11 Term 20: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 18: Election timeout elapsed at 1711487771.309204, node 1 start new election
+2024/03/26 16:16:11 Term 19: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:11 Term 19: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:11 Term 19: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:11 Term 19: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:11 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:11 Term 20: Election timeout elapsed at 1711487771.967973, node 0 start new election
+2024/03/26 16:16:11 Term 21: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:11 Term 21: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:11 Term 21: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:11 Term 21: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 19: Election timeout elapsed at 1711487772.155179, node 1 start new election
+2024/03/26 16:16:12 Term 20: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:12 Term 20: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:12 Term 20: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:12 Term 20: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 21: Election timeout elapsed at 1711487772.772072, node 0 start new election
+2024/03/26 16:16:12 Term 22: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:12 Term 22: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:12 Term 22: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:12 Term 22: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:12 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 20: Election timeout elapsed at 1711487773.001173, node 1 start new election
+2024/03/26 16:16:13 Term 21: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:13 Term 21: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:13 Term 21: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:13 Term 21: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 22: Election timeout elapsed at 1711487773.576707, node 0 start new election
+2024/03/26 16:16:13 Term 23: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:13 Term 23: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:13 Term 23: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:13 Term 23: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:13 Term 21: Election timeout elapsed at 1711487773.846862, node 1 start new election
+2024/03/26 16:16:13 Term 22: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:13 Term 22: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:13 Term 22: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:13 Term 22: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:13 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 23: Election timeout elapsed at 1711487774.381480, node 0 start new election
+2024/03/26 16:16:14 Term 24: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:14 Term 24: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:14 Term 24: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:14 Term 24: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 22: Election timeout elapsed at 1711487774.692944, node 1 start new election
+2024/03/26 16:16:14 Term 23: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:14 Term 23: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:14 Term 23: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:14 Term 23: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:14 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 24: Election timeout elapsed at 1711487775.185685, node 0 start new election
+2024/03/26 16:16:15 Term 25: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:15 Term 25: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:15 Term 25: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:15 Term 25: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 23: Election timeout elapsed at 1711487775.538339, node 1 start new election
+2024/03/26 16:16:15 Term 24: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:15 Term 24: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:15 Term 24: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:15 Term 24: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:15 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:15 Term 25: Election timeout elapsed at 1711487775.990389, node 0 start new election
+2024/03/26 16:16:15 Term 26: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:15 Term 26: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:15 Term 26: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:15 Term 26: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 24: Election timeout elapsed at 1711487776.383982, node 1 start new election
+2024/03/26 16:16:16 Term 25: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:16 Term 25: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:16 Term 25: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:16 Term 25: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 26: Election timeout elapsed at 1711487776.795418, node 0 start new election
+2024/03/26 16:16:16 Term 27: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:16 Term 27: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:16 Term 27: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:16 Term 27: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:16 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 25: Election timeout elapsed at 1711487777.229613, node 1 start new election
+2024/03/26 16:16:17 Term 26: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:17 Term 26: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:17 Term 26: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:17 Term 26: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 27: Election timeout elapsed at 1711487777.600169, node 0 start new election
+2024/03/26 16:16:17 Term 28: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:17 Term 28: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:17 Term 28: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:17 Term 28: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:17 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 26: Election timeout elapsed at 1711487778.074906, node 1 start new election
+2024/03/26 16:16:18 Term 27: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:18 Term 27: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:18 Term 27: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:18 Term 27: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 28: Election timeout elapsed at 1711487778.405055, node 0 start new election
+2024/03/26 16:16:18 Term 29: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:18 Term 29: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:18 Term 29: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:18 Term 29: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:18 Term 27: Election timeout elapsed at 1711487778.920473, node 1 start new election
+2024/03/26 16:16:18 Term 28: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:18 Term 28: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:18 Term 28: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:18 Term 28: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:18 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 29: Election timeout elapsed at 1711487779.211654, node 0 start new election
+2024/03/26 16:16:19 Term 30: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:19 Term 30: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:19 Term 30: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:19 Term 30: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 28: Election timeout elapsed at 1711487779.765642, node 1 start new election
+2024/03/26 16:16:19 Term 29: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:19 Term 29: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:19 Term 29: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:19 Term 29: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:19 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 30: Election timeout elapsed at 1711487780.016572, node 0 start new election
+2024/03/26 16:16:20 Term 31: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:20 Term 31: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:20 Term 31: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:20 Term 31: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 29: Election timeout elapsed at 1711487780.611006, node 1 start new election
+2024/03/26 16:16:20 Term 30: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:20 Term 30: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:20 Term 30: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:20 Term 30: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 31: Election timeout elapsed at 1711487780.820870, node 0 start new election
+2024/03/26 16:16:20 Term 32: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:20 Term 32: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:20 Term 32: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:20 Term 32: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:20 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 30: Election timeout elapsed at 1711487781.456240, node 1 start new election
+2024/03/26 16:16:21 Term 31: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:21 Term 31: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:21 Term 31: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:21 Term 31: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 32: Election timeout elapsed at 1711487781.625085, node 0 start new election
+2024/03/26 16:16:21 Term 33: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:21 Term 33: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:21 Term 33: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:21 Term 33: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:21 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 31: Election timeout elapsed at 1711487782.302318, node 1 start new election
+2024/03/26 16:16:22 Term 32: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:22 Term 32: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:22 Term 32: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:22 Term 32: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 33: Election timeout elapsed at 1711487782.429889, node 0 start new election
+2024/03/26 16:16:22 Term 34: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:22 Term 34: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:22 Term 34: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:22 Term 34: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:22 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 32: Election timeout elapsed at 1711487783.148343, node 1 start new election
+2024/03/26 16:16:23 Term 33: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:23 Term 33: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:23 Term 33: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:23 Term 33: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 34: Election timeout elapsed at 1711487783.233935, node 0 start new election
+2024/03/26 16:16:23 Term 35: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:23 Term 35: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:23 Term 35: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:23 Term 35: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:23 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:23 Term 33: Election timeout elapsed at 1711487783.994190, node 1 start new election
+2024/03/26 16:16:23 Term 34: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:23 Term 34: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:23 Term 34: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:23 Term 34: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:24 Term 35: Election timeout elapsed at 1711487784.038420, node 0 start new election
+2024/03/26 16:16:24 Term 36: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:24 Term 36: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:24 Term 36: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:24 Term 36: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 34: Election timeout elapsed at 1711487784.840181, node 1 start new election
+2024/03/26 16:16:24 Term 35: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:24 Term 35: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:24 Term 35: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:24 Term 35: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:24 Term 36: Election timeout elapsed at 1711487784.847640, node 0 start new election
+2024/03/26 16:16:24 Term 37: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:24 Term 37: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:24 Term 37: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:24 Term 37: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:24 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 37: Election timeout elapsed at 1711487785.652359, node 0 start new election
+2024/03/26 16:16:25 Term 38: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:25 Term 38: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:25 Term 38: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:25 Term 38: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 35: Election timeout elapsed at 1711487785.685931, node 1 start new election
+2024/03/26 16:16:25 Term 36: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:25 Term 36: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:25 Term 36: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:25 Term 36: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:25 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 38: Election timeout elapsed at 1711487786.457444, node 0 start new election
+2024/03/26 16:16:26 Term 39: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:26 Term 39: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:26 Term 39: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:26 Term 39: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 36: Election timeout elapsed at 1711487786.531108, node 1 start new election
+2024/03/26 16:16:26 Term 37: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:26 Term 37: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:26 Term 37: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:26 Term 37: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:26 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 39: Election timeout elapsed at 1711487787.261643, node 0 start new election
+2024/03/26 16:16:27 Term 40: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:27 Term 40: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:27 Term 40: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:27 Term 40: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 37: Election timeout elapsed at 1711487787.376207, node 1 start new election
+2024/03/26 16:16:27 Term 38: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:27 Term 38: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:27 Term 38: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:27 Term 38: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:27 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 40: Election timeout elapsed at 1711487788.065868, node 0 start new election
+2024/03/26 16:16:28 Term 41: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:28 Term 41: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:28 Term 41: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:28 Term 41: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 38: Election timeout elapsed at 1711487788.221775, node 1 start new election
+2024/03/26 16:16:28 Term 39: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:28 Term 39: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:28 Term 39: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:28 Term 39: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 41: Election timeout elapsed at 1711487788.870091, node 0 start new election
+2024/03/26 16:16:28 Term 42: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:28 Term 42: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:28 Term 42: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:28 Term 42: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:28 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 39: Election timeout elapsed at 1711487789.066994, node 1 start new election
+2024/03/26 16:16:29 Term 40: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:29 Term 40: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:29 Term 40: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:29 Term 40: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 42: Election timeout elapsed at 1711487789.674331, node 0 start new election
+2024/03/26 16:16:29 Term 43: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:29 Term 43: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:29 Term 43: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:29 Term 43: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:29 Term 40: Election timeout elapsed at 1711487789.912707, node 1 start new election
+2024/03/26 16:16:29 Term 41: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:29 Term 41: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:29 Term 41: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:29 Term 41: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:29 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 43: Election timeout elapsed at 1711487790.478446, node 0 start new election
+2024/03/26 16:16:30 Term 44: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:30 Term 44: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:30 Term 44: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:30 Term 44: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 41: Election timeout elapsed at 1711487790.757747, node 1 start new election
+2024/03/26 16:16:30 Term 42: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:30 Term 42: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:30 Term 42: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:30 Term 42: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:30 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 44: Election timeout elapsed at 1711487791.282707, node 0 start new election
+2024/03/26 16:16:31 Term 45: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:31 Term 45: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:31 Term 45: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:31 Term 45: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 42: Election timeout elapsed at 1711487791.603108, node 1 start new election
+2024/03/26 16:16:31 Term 43: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:31 Term 43: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:31 Term 43: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:31 Term 43: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:31 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 45: Election timeout elapsed at 1711487792.086932, node 0 start new election
+2024/03/26 16:16:32 Term 46: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:32 Term 46: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:32 Term 46: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:32 Term 46: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 43: Election timeout elapsed at 1711487792.448522, node 1 start new election
+2024/03/26 16:16:32 Term 44: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:32 Term 44: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:32 Term 44: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:32 Term 44: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:32 Term 46: Election timeout elapsed at 1711487792.892003, node 0 start new election
+2024/03/26 16:16:32 Term 47: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:32 Term 47: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:32 Term 47: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:32 Term 47: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:32 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 44: Election timeout elapsed at 1711487793.294587, node 1 start new election
+2024/03/26 16:16:33 Term 45: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:33 Term 45: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:33 Term 45: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:33 Term 45: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 47: Election timeout elapsed at 1711487793.696102, node 0 start new election
+2024/03/26 16:16:33 Term 48: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:33 Term 48: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:33 Term 48: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:33 Term 48: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:33 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 45: Election timeout elapsed at 1711487794.140157, node 1 start new election
+2024/03/26 16:16:34 Term 46: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:34 Term 46: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:34 Term 46: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:34 Term 46: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 48: Election timeout elapsed at 1711487794.500365, node 0 start new election
+2024/03/26 16:16:34 Term 49: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:34 Term 49: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:34 Term 49: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:34 Term 49: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:34 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:34 Term 46: Election timeout elapsed at 1711487794.986209, node 1 start new election
+2024/03/26 16:16:34 Term 47: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:34 Term 47: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:34 Term 47: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:34 Term 47: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 49: Election timeout elapsed at 1711487795.304482, node 0 start new election
+2024/03/26 16:16:35 Term 50: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:35 Term 50: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:35 Term 50: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:35 Term 50: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:35 Term 47: Election timeout elapsed at 1711487795.831772, node 1 start new election
+2024/03/26 16:16:35 Term 48: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:35 Term 48: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:35 Term 48: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:35 Term 48: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:35 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 50: Election timeout elapsed at 1711487796.109271, node 0 start new election
+2024/03/26 16:16:36 Term 51: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:36 Term 51: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:36 Term 51: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:36 Term 51: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 48: Election timeout elapsed at 1711487796.677589, node 1 start new election
+2024/03/26 16:16:36 Term 49: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:36 Term 49: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:36 Term 49: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:36 Term 49: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:36 Term 51: Election timeout elapsed at 1711487796.913642, node 0 start new election
+2024/03/26 16:16:36 Term 52: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:36 Term 52: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:36 Term 52: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:36 Term 52: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:36 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 49: Election timeout elapsed at 1711487797.523628, node 1 start new election
+2024/03/26 16:16:37 Term 50: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:37 Term 50: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:37 Term 50: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:37 Term 50: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 52: Election timeout elapsed at 1711487797.718643, node 0 start new election
+2024/03/26 16:16:37 Term 53: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:37 Term 53: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:37 Term 53: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:37 Term 53: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:37 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 50: Election timeout elapsed at 1711487798.368972, node 1 start new election
+2024/03/26 16:16:38 Term 51: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:38 Term 51: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:38 Term 51: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:38 Term 51: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 53: Election timeout elapsed at 1711487798.523708, node 0 start new election
+2024/03/26 16:16:38 Term 54: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:38 Term 54: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:38 Term 54: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:38 Term 54: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:38 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 51: Election timeout elapsed at 1711487799.214206, node 1 start new election
+2024/03/26 16:16:39 Term 52: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:39 Term 52: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:39 Term 52: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:39 Term 52: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 54: Election timeout elapsed at 1711487799.327986, node 0 start new election
+2024/03/26 16:16:39 Term 55: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:39 Term 55: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:39 Term 55: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:39 Term 55: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:39 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 52: Election timeout elapsed at 1711487800.060228, node 1 start new election
+2024/03/26 16:16:40 Term 53: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:40 Term 53: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:40 Term 53: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:40 Term 53: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:40 Term 55: Election timeout elapsed at 1711487800.132503, node 0 start new election
+2024/03/26 16:16:40 Term 56: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:40 Term 56: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:40 Term 56: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:40 Term 56: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:40 Term 53: Election timeout elapsed at 1711487800.905508, node 1 start new election
+2024/03/26 16:16:40 Term 54: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:40 Term 54: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:40 Term 54: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:40 Term 54: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:40 Term 56: Election timeout elapsed at 1711487800.936725, node 0 start new election
+2024/03/26 16:16:40 Term 57: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:40 Term 57: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:40 Term 57: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:40 Term 57: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:40 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 57: Election timeout elapsed at 1711487801.741537, node 0 start new election
+2024/03/26 16:16:41 Term 58: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:41 Term 58: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:41 Term 58: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:41 Term 58: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 54: Election timeout elapsed at 1711487801.751001, node 1 start new election
+2024/03/26 16:16:41 Term 55: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:41 Term 55: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:41 Term 55: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:41 Term 55: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:41 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 58: Election timeout elapsed at 1711487802.546482, node 0 start new election
+2024/03/26 16:16:42 Term 59: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:42 Term 59: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:42 Term 59: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:42 Term 59: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 55: Election timeout elapsed at 1711487802.596057, node 1 start new election
+2024/03/26 16:16:42 Term 56: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:42 Term 56: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:42 Term 56: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:42 Term 56: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:42 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 59: Election timeout elapsed at 1711487803.350840, node 0 start new election
+2024/03/26 16:16:43 Term 60: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:43 Term 60: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:43 Term 60: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:43 Term 60: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 56: Election timeout elapsed at 1711487803.441434, node 1 start new election
+2024/03/26 16:16:43 Term 57: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:43 Term 57: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:43 Term 57: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:43 Term 57: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:43 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 60: Election timeout elapsed at 1711487804.155935, node 0 start new election
+2024/03/26 16:16:44 Term 61: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:44 Term 61: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:44 Term 61: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:44 Term 61: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 57: Election timeout elapsed at 1711487804.286820, node 1 start new election
+2024/03/26 16:16:44 Term 58: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:44 Term 58: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:44 Term 58: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:44 Term 58: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:44 Term 61: Election timeout elapsed at 1711487804.959983, node 0 start new election
+2024/03/26 16:16:44 Term 62: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:44 Term 62: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:44 Term 62: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:44 Term 62: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:44 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 58: Election timeout elapsed at 1711487805.132798, node 1 start new election
+2024/03/26 16:16:45 Term 59: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:45 Term 59: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:45 Term 59: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:45 Term 59: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 62: Election timeout elapsed at 1711487805.765030, node 0 start new election
+2024/03/26 16:16:45 Term 63: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:45 Term 63: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 63: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:45 Term 63: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:45 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:45 Term 59: Election timeout elapsed at 1711487805.977939, node 1 start new election
+2024/03/26 16:16:45 Term 60: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:45 Term 60: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:45 Term 60: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:45 Term 60: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 63: Election timeout elapsed at 1711487806.569148, node 0 start new election
+2024/03/26 16:16:46 Term 64: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:46 Term 64: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:46 Term 64: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:46 Term 64: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 60: Election timeout elapsed at 1711487806.823056, node 1 start new election
+2024/03/26 16:16:46 Term 61: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:46 Term 61: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:46 Term 61: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:46 Term 61: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:46 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 64: Election timeout elapsed at 1711487807.373206, node 0 start new election
+2024/03/26 16:16:47 Term 65: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:47 Term 65: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:47 Term 65: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:47 Term 65: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 61: Election timeout elapsed at 1711487807.669141, node 1 start new election
+2024/03/26 16:16:47 Term 62: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:47 Term 62: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:47 Term 62: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:47 Term 62: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:47 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 65: Election timeout elapsed at 1711487808.177272, node 0 start new election
+2024/03/26 16:16:48 Term 66: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:48 Term 66: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:48 Term 66: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:48 Term 66: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 62: Election timeout elapsed at 1711487808.514509, node 1 start new election
+2024/03/26 16:16:48 Term 63: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:48 Term 63: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:48 Term 63: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:48 Term 63: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:48 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:48 Term 66: Election timeout elapsed at 1711487808.982265, node 0 start new election
+2024/03/26 16:16:48 Term 67: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:48 Term 67: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:48 Term 67: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:48 Term 67: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 63: Election timeout elapsed at 1711487809.359578, node 1 start new election
+2024/03/26 16:16:49 Term 64: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:49 Term 64: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:49 Term 64: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:49 Term 64: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 67: Election timeout elapsed at 1711487809.787257, node 0 start new election
+2024/03/26 16:16:49 Term 68: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:49 Term 68: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:49 Term 68: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:49 Term 68: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:49 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 64: Election timeout elapsed at 1711487810.205042, node 1 start new election
+2024/03/26 16:16:50 Term 65: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:50 Term 65: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:50 Term 65: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:50 Term 65: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 68: Election timeout elapsed at 1711487810.591463, node 0 start new election
+2024/03/26 16:16:50 Term 69: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:50 Term 69: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:50 Term 69: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:50 Term 69: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:50 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 65: Election timeout elapsed at 1711487811.050178, node 1 start new election
+2024/03/26 16:16:51 Term 66: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:51 Term 66: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:51 Term 66: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:51 Term 66: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 69: Election timeout elapsed at 1711487811.395698, node 0 start new election
+2024/03/26 16:16:51 Term 70: Node 0 sent RequestVote to node 1
+2024/03/26 16:16:51 Term 70: Node 0 sent RequestVote to node 2
+2024/03/26 16:16:51 Term 70: Fail to send RequestVote from node 0 to node 1
+2024/03/26 16:16:51 Term 70: Fail to send RequestVote from node 0 to node 2
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+2024/03/26 16:16:51 Term 66: Election timeout elapsed at 1711487811.895817, node 1 start new election
+2024/03/26 16:16:51 Term 67: Node 1 sent RequestVote to node 0
+2024/03/26 16:16:51 Term 67: Node 1 sent RequestVote to node 2
+2024/03/26 16:16:51 Term 67: Fail to send RequestVote from node 1 to node 0
+2024/03/26 16:16:51 Term 67: Fail to send RequestVote from node 1 to node 2
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 1
+2024/03/26 16:16:51 Term 1: Leader 2 fails to send hb to node 0
+signal: interrupt
+FAIL	raft/raft	60.200s

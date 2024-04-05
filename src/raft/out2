@@ -1,0 +1,1017 @@
+warning: only one CPU, which may conceal locking bugs
+Test (2B): agreement despite follower disconnection ...
+2024/04/05 00:11:10 Term 0: Election timeout elapsed at 1712293870.745328, node 2 start new election
+2024/04/05 00:11:10 Term 1: Node 2 sent RequestVote to node 0
+2024/04/05 00:11:10 Term 1: Node 2 sent RequestVote to node 1
+2024/04/05 00:11:10 Term 0: Node 0 receive reqVote from node 2 (term 1)
+2024/04/05 00:11:10 Term 1: Node 0 voted for node 2
+2024/04/05 00:11:10 Term 1: Node 2 got vote from node 0
+2024/04/05 00:11:10 Term 1: Node 2 : received votes = 2, majority = 1
+2024/04/05 00:11:10 Term 1: Node 2 becomes Leader
+2024/04/05 00:11:10 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:10 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:10 Term 1: Node 1 receive reqVote from node 2 (term 1)
+2024/04/05 00:11:10 Term 1: Node 1 voted for node 2
+2024/04/05 00:11:10 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:10 Reset timer
+2024/04/05 00:11:10 Term 1: Node 0 receives hb from leader 2
+2024/04/05 00:11:10 Reset timer
+2024/04/05 00:11:10 Term 1: Leader 2 received command 101 from client
+2024/04/05 00:11:10 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:10 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:10 Term 1: Node 1 receives log entry from leader 2
+2024/04/05 00:11:10 Consistency check args PrevIdx 0, lastIdx 0, args PrevTerm-1 , log Term -1
+2024/04/05 00:11:10 Follower 1 apply command 101 at 1
+2024/04/05 00:11:10 leader apply command 101 at 1
+2024/04/05 00:11:10 Term 1: Node 0 receives log entry from leader 2
+2024/04/05 00:11:10 Consistency check args PrevIdx 0, lastIdx 0, args PrevTerm-1 , log Term -1
+2024/04/05 00:11:10 Follower 0 apply command 101 at 1
+2024/04/05 00:11:10 leader apply command 101 at 1
+2024/04/05 00:11:10 Reset timer
+2024/04/05 00:11:10 Reset timer
+2024/04/05 00:11:10 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:10 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:10 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:10 Reset timer
+2024/04/05 00:11:10 Term 1: Node 0 receives hb from leader 2
+2024/04/05 00:11:10 Reset timer
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 0 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 0 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 0 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 0 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Leader 2 received command 102 from client
+2024/04/05 00:11:11 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:11 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:11 Term 1: Node 1 receives log entry from leader 2
+2024/04/05 00:11:11 Consistency check args PrevIdx 1, lastIdx 1, args PrevTerm1 , log Term 1
+2024/04/05 00:11:11 Follower 1 apply command 102 at 2
+2024/04/05 00:11:11 leader apply command 102 at 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Leader 2 received command 103 from client
+2024/04/05 00:11:11 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:11 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:11 Term 1: Node 1 receives log entry from leader 2
+2024/04/05 00:11:11 Consistency check args PrevIdx 2, lastIdx 2, args PrevTerm1 , log Term 1
+2024/04/05 00:11:11 Follower 1 apply command 103 at 3
+2024/04/05 00:11:11 leader apply command 103 at 3
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:11 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:11 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:11 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:11 Reset timer
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:12 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:12 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Term 1: Election timeout elapsed at 1712293872.199329, node 0 start new election
+2024/04/05 00:11:12 Term 2: Node 0 sent RequestVote to node 1
+2024/04/05 00:11:12 Term 2: Node 0 sent RequestVote to node 2
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:12 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:12 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:12 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending hb
+2024/04/05 00:11:12 Term 1: Node 1 receives hb from leader 2
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Term 1: Leader 2 received command 104 from client
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 1 receives log entry from leader 2
+2024/04/05 00:11:12 Consistency check args PrevIdx 3, lastIdx 3, args PrevTerm1 , log Term 1
+2024/04/05 00:11:12 Follower 1 apply command 104 at 4
+2024/04/05 00:11:12 leader apply command 104 at 4
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Term 1: Leader 2 received command 105 from client
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 1 receives log entry from leader 2
+2024/04/05 00:11:12 Consistency check args PrevIdx 4, lastIdx 4, args PrevTerm1 , log Term 1
+2024/04/05 00:11:12 Follower 1 apply command 105 at 5
+2024/04/05 00:11:12 leader apply command 105 at 5
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Term 1: Leader 2 received command 106 from client
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 2 starts sending log entry
+2024/04/05 00:11:12 Term 1: Node 1 receives log entry from leader 2
+2024/04/05 00:11:12 Consistency check args PrevIdx 5, lastIdx 5, args PrevTerm1 , log Term 1
+2024/04/05 00:11:12 Follower 1 apply command 106 at 6
+2024/04/05 00:11:12 leader apply command 106 at 6
+2024/04/05 00:11:12 Term 2: Node 0 received HB from old leader 2!
+2024/04/05 00:11:12 Term 2: Leader 2 downgrades to Follower
+2024/04/05 00:11:12 leader apply command %!d(<nil>) at 0
+2024/04/05 00:11:12 leader apply command 101 at 1
+2024/04/05 00:11:12 leader apply command 102 at 2
+2024/04/05 00:11:12 leader apply command 103 at 3
+2024/04/05 00:11:12 leader apply command 104 at 4
+2024/04/05 00:11:12 leader apply command 105 at 5
+2024/04/05 00:11:12 leader apply command 106 at 6
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:12 Reset timer
+2024/04/05 00:11:13 Term 2: Fail to send RequestVote from node 0 to node 2
+2024/04/05 00:11:13 Term 2: Node 0 received HB from old leader 2!
+2024/04/05 00:11:13 Term 2: Leader 2 downgrades to Follower
+2024/04/05 00:11:13 leader apply command 102 at 2
+2024/04/05 00:11:13 leader apply command 103 at 3
+2024/04/05 00:11:13 Term 2: Candidate node 0 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:13 Term 1: Node 0 receives log entry from leader 2
+2024/04/05 00:11:13 Consistency check args PrevIdx 2, lastIdx 1, args PrevTerm1 , log Term 1
+2024/04/05 00:11:13 leader apply command 102 at 2
+2024/04/05 00:11:13 leader apply command 103 at 3
+2024/04/05 00:11:13 Reset timer
+2024/04/05 00:11:13 Term 1: Node 0 receives log entry from leader 2
+2024/04/05 00:11:13 Consistency check args PrevIdx 3, lastIdx 1, args PrevTerm1 , log Term 1
+2024/04/05 00:11:13 leader apply command %!d(<nil>) at 0
+2024/04/05 00:11:13 leader apply command 101 at 1
+2024/04/05 00:11:13 leader apply command 102 at 2
+2024/04/05 00:11:13 leader apply command 103 at 3
+2024/04/05 00:11:13 leader apply command 104 at 4
+2024/04/05 00:11:13 Reset timer
+2024/04/05 00:11:13 Term 1: Node 0 receives log entry from leader 2
+2024/04/05 00:11:13 Consistency check args PrevIdx 2, lastIdx 1, args PrevTerm1 , log Term 1
+2024/04/05 00:11:13 leader apply command 101 at 1
+2024/04/05 00:11:13 leader apply command 102 at 2
+2024/04/05 00:11:13 leader apply command 103 at 3
+2024/04/05 00:11:13 Reset timer
+2024/04/05 00:11:13 Term 2: Election timeout elapsed at 1712293873.914863, node 2 start new election
+2024/04/05 00:11:13 Term 3: Node 2 sent RequestVote to node 0
+2024/04/05 00:11:13 Term 3: Node 2 sent RequestVote to node 1
+2024/04/05 00:11:13 Term 1: Node 0 receive reqVote from node 2 (term 3)
+2024/04/05 00:11:13 Term 3: Node 0 voted for node 2
+2024/04/05 00:11:13 Term 3: Node 2 got vote from node 0
+2024/04/05 00:11:13 Term 3: Node 2 : received votes = 2, majority = 1
+2024/04/05 00:11:13 Term 3: Node 2 becomes Leader
+2024/04/05 00:11:13 Term 3: Node 2 starts sending hb
+2024/04/05 00:11:13 Term 3: Node 2 starts sending hb
+2024/04/05 00:11:13 Term 3: Node 1 receive reqVote from node 2 (term 3)
+2024/04/05 00:11:13 Term 3: Node 1 voted for node 2
+2024/04/05 00:11:13 Term 3: Node 1 receives hb from leader 2
+2024/04/05 00:11:13 Reset timer
+2024/04/05 00:11:13 Term 3: Node 0 receives hb from leader 2
+2024/04/05 00:11:13 Reset timer
+2024/04/05 00:11:14 Term 3: Node 2 starts sending hb
+2024/04/05 00:11:14 Term 3: Node 2 starts sending hb
+2024/04/05 00:11:14 Term 3: Node 1 receives hb from leader 2
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 3: Node 0 receives hb from leader 2
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 3: Node 0 received HB from old leader 2!
+2024/04/05 00:11:14 Term 3: Leader 2 downgrades to Follower
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 3: Election timeout elapsed at 1712293874.636656, node 2 start new election
+2024/04/05 00:11:14 Term 4: Node 2 sent RequestVote to node 0
+2024/04/05 00:11:14 Term 4: Node 2 sent RequestVote to node 1
+2024/04/05 00:11:14 Term 3: Node 0 receive reqVote from node 2 (term 4)
+2024/04/05 00:11:14 Term 4: Node 0 voted for node 2
+2024/04/05 00:11:14 Term 4: Node 2 got vote from node 0
+2024/04/05 00:11:14 Term 4: Node 2 : received votes = 2, majority = 1
+2024/04/05 00:11:14 Term 4: Node 2 becomes Leader
+2024/04/05 00:11:14 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:14 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:14 Term 4: Node 1 receive reqVote from node 2 (term 4)
+2024/04/05 00:11:14 Term 4: Node 1 voted for node 2
+2024/04/05 00:11:14 Term 4: Node 1 receives hb from leader 2
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 4: Node 0 receives hb from leader 2
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:14 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:14 Term 4: Node 1 receives hb from leader 2
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 4: Node 0 receives hb from leader 2
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 4: Leader 2 received command 106 from client
+2024/04/05 00:11:14 Term 4: Node 2 starts sending log entry
+2024/04/05 00:11:14 Term 4: Node 2 starts sending log entry
+2024/04/05 00:11:14 Term 4: Node 1 receives log entry from leader 2
+2024/04/05 00:11:14 Consistency check args PrevIdx 6, lastIdx 6, args PrevTerm1 , log Term 1
+2024/04/05 00:11:14 Follower 1 apply command 106 at 7
+2024/04/05 00:11:14 Term 4: Node 0 receives log entry from leader 2
+2024/04/05 00:11:14 Consistency check args PrevIdx 6, lastIdx 1, args PrevTerm1 , log Term 1
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:14 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:14 Term 4: Node 1 receives hb from leader 2
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:14 Term 4: Node 0 receives hb from leader 2
+2024/04/05 00:11:14 Reset timer
+2024/04/05 00:11:15 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:15 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:15 Term 4: Node 1 receives hb from leader 2
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 4: Node 0 receives hb from leader 2
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:15 Term 4: Node 2 starts sending hb
+2024/04/05 00:11:15 Term 4: Node 1 receives hb from leader 2
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 4: Node 0 receives hb from leader 2
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 4: Node 0 received HB from old leader 2!
+2024/04/05 00:11:15 Term 4: Leader 2 downgrades to Follower
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 4: Election timeout elapsed at 1712293875.501929, node 0 start new election
+2024/04/05 00:11:15 Term 5: Node 0 sent RequestVote to node 1
+2024/04/05 00:11:15 Term 5: Node 0 sent RequestVote to node 2
+2024/04/05 00:11:15 Term 4: Node 1 receive reqVote from node 0 (term 5)
+2024/04/05 00:11:15 Term 5: Node 1 voted for node 0
+2024/04/05 00:11:15 Term 5: Node 0 got vote from node 1
+2024/04/05 00:11:15 Term 5: Node 0 : received votes = 2, majority = 1
+2024/04/05 00:11:15 Term 5: Node 0 becomes Leader
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Node 2 receive reqVote from node 0 (term 5)
+2024/04/05 00:11:15 Term 5: Node 2 voted for node 0
+2024/04/05 00:11:15 Term 5: Node 2 receives hb from leader 0
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 5: Node 1 receives hb from leader 0
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Candidate node 2 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:15 Term 5: Node 1 receives hb from leader 0
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 5: Node 0 received HB from old leader 2!
+2024/04/05 00:11:15 Term 5: Leader 2 downgrades to Follower
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Node 2 receives hb from leader 0
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 5: Node 1 receives hb from leader 0
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Node 2 receives hb from leader 0
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 5: Node 1 receives hb from leader 0
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:15 Term 5: Candidate node 2 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:15 Term 5: Node 1 receives hb from leader 0
+2024/04/05 00:11:15 Reset timer
+2024/04/05 00:11:16 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:16 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:16 Term 5: Node 2 receives hb from leader 0
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 5: Node 1 receives hb from leader 0
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:16 Term 5: Node 0 starts sending hb
+2024/04/05 00:11:16 Term 5: Candidate node 2 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:16 Term 5: Node 1 receives hb from leader 0
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 5: Election timeout elapsed at 1712293876.172517, node 2 start new election
+2024/04/05 00:11:16 Term 6: Node 2 sent RequestVote to node 0
+2024/04/05 00:11:16 Term 6: Node 2 sent RequestVote to node 1
+2024/04/05 00:11:16 Term 5: Node 0 receive reqVote from node 2 (term 6)
+2024/04/05 00:11:16 Term 6: Node 0 voted for node 2
+2024/04/05 00:11:16 Term 6: Node 2 got vote from node 0
+2024/04/05 00:11:16 Term 6: Node 2 : received votes = 2, majority = 1
+2024/04/05 00:11:16 Term 6: Node 2 becomes Leader
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 1 receive reqVote from node 2 (term 6)
+2024/04/05 00:11:16 Term 6: Node 1 voted for node 2
+2024/04/05 00:11:16 Term 6: Node 1 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Candidate node 0 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 1 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 0 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 1 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 0 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 1 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 0 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 1 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 0 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 1 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 0 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 1 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 0 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Leader 2 received command 106 from client
+2024/04/05 00:11:16 Term 6: Node 2 starts sending log entry
+2024/04/05 00:11:16 Term 6: Node 2 starts sending log entry
+2024/04/05 00:11:16 Term 6: Node 1 receives log entry from leader 2
+2024/04/05 00:11:16 Consistency check args PrevIdx 7, lastIdx 7, args PrevTerm4 , log Term 4
+2024/04/05 00:11:16 Follower 1 apply command 106 at 8
+2024/04/05 00:11:16 Term 6: Node 0 receives log entry from leader 2
+2024/04/05 00:11:16 Consistency check args PrevIdx 7, lastIdx 1, args PrevTerm4 , log Term 1
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 2 starts sending hb
+2024/04/05 00:11:16 Term 6: Node 1 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:16 Term 6: Node 0 receives hb from leader 2
+2024/04/05 00:11:16 Reset timer
+2024/04/05 00:11:17 Term 6: Node 0 received HB from old leader 2!
+2024/04/05 00:11:17 Term 6: Leader 2 downgrades to Follower
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 6: Node 0 received HB from old leader 2!
+2024/04/05 00:11:17 Term 6: Leader 2 downgrades to Follower
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 6: Node 0 received HB from old leader 2!
+2024/04/05 00:11:17 Term 6: Leader 2 downgrades to Follower
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 6: Election timeout elapsed at 1712293877.608025, node 2 start new election
+2024/04/05 00:11:17 Term 7: Node 2 sent RequestVote to node 0
+2024/04/05 00:11:17 Term 7: Node 2 sent RequestVote to node 1
+2024/04/05 00:11:17 Term 6: Node 0 receive reqVote from node 2 (term 7)
+2024/04/05 00:11:17 Term 7: Node 0 voted for node 2
+2024/04/05 00:11:17 Term 7: Node 2 got vote from node 0
+2024/04/05 00:11:17 Term 7: Node 2 : received votes = 2, majority = 1
+2024/04/05 00:11:17 Term 7: Node 2 becomes Leader
+2024/04/05 00:11:17 Term 7: Node 2 starts sending hb
+2024/04/05 00:11:17 Term 7: Node 2 starts sending hb
+2024/04/05 00:11:17 Term 7: Node 1 receive reqVote from node 2 (term 7)
+2024/04/05 00:11:17 Term 7: Node 1 voted for node 2
+2024/04/05 00:11:17 Term 7: Node 1 receives hb from leader 2
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 7: Node 0 receives hb from leader 2
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 7: Node 2 starts sending hb
+2024/04/05 00:11:17 Term 7: Node 2 starts sending hb
+2024/04/05 00:11:17 Term 7: Node 1 receives hb from leader 2
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 7: Node 0 receives hb from leader 2
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 7: Node 2 starts sending hb
+2024/04/05 00:11:17 Term 7: Node 2 starts sending hb
+2024/04/05 00:11:17 Term 7: Node 1 receives hb from leader 2
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 7: Node 0 receives hb from leader 2
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:17 Term 7: Node 0 received HB from old leader 2!
+2024/04/05 00:11:17 Term 7: Leader 2 downgrades to Follower
+2024/04/05 00:11:17 Reset timer
+2024/04/05 00:11:18 Term 7: Election timeout elapsed at 1712293878.137089, node 2 start new election
+2024/04/05 00:11:18 Term 8: Node 2 sent RequestVote to node 0
+2024/04/05 00:11:18 Term 8: Node 2 sent RequestVote to node 1
+2024/04/05 00:11:18 Term 7: Node 0 receive reqVote from node 2 (term 8)
+2024/04/05 00:11:18 Term 8: Node 0 voted for node 2
+2024/04/05 00:11:18 Term 8: Node 2 got vote from node 0
+2024/04/05 00:11:18 Term 8: Node 2 : received votes = 2, majority = 1
+2024/04/05 00:11:18 Term 8: Node 2 becomes Leader
+2024/04/05 00:11:18 Term 8: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 8: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 8: Node 1 receive reqVote from node 2 (term 8)
+2024/04/05 00:11:18 Term 8: Node 1 voted for node 2
+2024/04/05 00:11:18 Term 8: Node 1 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 8: Node 0 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 8: Node 0 received HB from old leader 2!
+2024/04/05 00:11:18 Term 8: Leader 2 downgrades to Follower
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 8: Node 0 received HB from old leader 2!
+2024/04/05 00:11:18 Term 8: Leader 2 downgrades to Follower
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 8: Fail to send RequestVote from node 0 to node 1
+2024/04/05 00:11:18 Term 8: Election timeout elapsed at 1712293878.590528, node 2 start new election
+2024/04/05 00:11:18 Term 9: Node 2 sent RequestVote to node 0
+2024/04/05 00:11:18 Term 9: Node 2 sent RequestVote to node 1
+2024/04/05 00:11:18 Term 8: Node 0 receive reqVote from node 2 (term 9)
+2024/04/05 00:11:18 Term 9: Node 0 voted for node 2
+2024/04/05 00:11:18 Term 9: Node 2 got vote from node 0
+2024/04/05 00:11:18 Term 9: Node 2 : received votes = 2, majority = 1
+2024/04/05 00:11:18 Term 9: Node 2 becomes Leader
+2024/04/05 00:11:18 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 9: Node 1 receive reqVote from node 2 (term 9)
+2024/04/05 00:11:18 Term 9: Node 1 voted for node 2
+2024/04/05 00:11:18 Term 9: Node 1 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 9: Node 0 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 9: Node 1 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 9: Node 0 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 9: Leader 2 received command 106 from client
+2024/04/05 00:11:18 Term 9: Node 2 starts sending log entry
+2024/04/05 00:11:18 Term 9: Node 2 starts sending log entry
+2024/04/05 00:11:18 Term 9: Node 1 receives log entry from leader 2
+2024/04/05 00:11:18 Consistency check args PrevIdx 8, lastIdx 8, args PrevTerm6 , log Term 6
+2024/04/05 00:11:18 Follower 1 apply command 106 at 9
+2024/04/05 00:11:18 Term 9: Node 0 receives log entry from leader 2
+2024/04/05 00:11:18 Consistency check args PrevIdx 8, lastIdx 1, args PrevTerm6 , log Term 1
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 9: Node 1 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 9: Node 0 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:18 Term 9: Node 1 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:18 Term 9: Node 0 receives hb from leader 2
+2024/04/05 00:11:18 Reset timer
+2024/04/05 00:11:19 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:19 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:19 Term 9: Node 1 receives hb from leader 2
+2024/04/05 00:11:19 Reset timer
+2024/04/05 00:11:19 Term 9: Node 0 receives hb from leader 2
+2024/04/05 00:11:19 Reset timer
+2024/04/05 00:11:19 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:19 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:19 Term 9: Node 1 receives hb from leader 2
+2024/04/05 00:11:19 Reset timer
+2024/04/05 00:11:19 Term 9: Node 0 receives hb from leader 2
+2024/04/05 00:11:19 Reset timer
+2024/04/05 00:11:19 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:19 Term 9: Node 2 starts sending hb
+2024/04/05 00:11:19 Term 9: Node 1 receives hb from leader 2
+2024/04/05 00:11:19 Reset timer
+2024/04/05 00:11:19 Term 9: Node 0 receives hb from leader 2
+2024/04/05 00:11:19 Reset timer
+2024/04/05 00:11:19 Term 9: Node 0 received HB from old leader 2!
+2024/04/05 00:11:19 Term 9: Leader 2 downgrades to Follower
+2024/04/05 00:11:19 Reset timer
+2024/04/05 00:11:20 Term 9: Election timeout elapsed at 1712293880.136623, node 0 start new election
+2024/04/05 00:11:20 Term 10: Node 0 sent RequestVote to node 1
+2024/04/05 00:11:20 Term 10: Node 0 sent RequestVote to node 2
+2024/04/05 00:11:20 Term 9: Node 1 receive reqVote from node 0 (term 10)
+2024/04/05 00:11:20 Term 10: Node 1 voted for node 0
+2024/04/05 00:11:20 Term 10: Node 0 got vote from node 1
+2024/04/05 00:11:20 Term 10: Node 0 : received votes = 2, majority = 1
+2024/04/05 00:11:20 Term 10: Node 0 becomes Leader
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 2 receive reqVote from node 0 (term 10)
+2024/04/05 00:11:20 Term 10: Node 2 voted for node 0
+2024/04/05 00:11:20 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Leader 0 received command 106 from client
+2024/04/05 00:11:20 Term 10: Node 0 starts sending log entry
+2024/04/05 00:11:20 Term 10: Node 0 starts sending log entry
+2024/04/05 00:11:20 Term 10: Node 2 receives log entry from leader 0
+2024/04/05 00:11:20 Consistency check args PrevIdx 1, lastIdx 9, args PrevTerm1 , log Term 9
+2024/04/05 00:11:20 Term 10: Node 1 receives log entry from leader 0
+2024/04/05 00:11:20 Consistency check args PrevIdx 1, lastIdx 9, args PrevTerm1 , log Term 9
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:20 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:20 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:20 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Candidate node 2 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Candidate node 2 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Candidate node 2 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 2 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Node 0 starts sending hb
+2024/04/05 00:11:21 Term 10: Candidate node 2 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:21 Term 10: Node 1 receives hb from leader 0
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 10: Election timeout elapsed at 1712293881.992849, node 2 start new election
+2024/04/05 00:11:21 Term 11: Node 2 sent RequestVote to node 0
+2024/04/05 00:11:21 Term 11: Node 2 sent RequestVote to node 1
+2024/04/05 00:11:21 Term 10: Node 0 receive reqVote from node 2 (term 11)
+2024/04/05 00:11:21 Term 11: Node 0 voted for node 2
+2024/04/05 00:11:21 Term 11: Node 2 got vote from node 0
+2024/04/05 00:11:21 Term 11: Node 2 : received votes = 2, majority = 1
+2024/04/05 00:11:21 Term 11: Node 2 becomes Leader
+2024/04/05 00:11:21 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:21 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:21 Term 11: Node 1 receive reqVote from node 2 (term 11)
+2024/04/05 00:11:21 Term 11: Node 1 voted for node 2
+2024/04/05 00:11:21 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:21 Term 11: Node 0 receives hb from leader 2
+2024/04/05 00:11:21 Reset timer
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Candidate node 0 Received heartbeat from Leader, downgrade to Follower
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 0 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 0 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 0 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 0 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 0 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 0 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 1 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+2024/04/05 00:11:22 Term 11: Node 0 receives hb from leader 2
+2024/04/05 00:11:22 Reset timer
+--- FAIL: TestFailAgree2B (12.59s)
+    config.go:430: one(106) failed to reach agreement
+Test (2B): no agreement if too many followers disconnect ...
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:22 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:22 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:22 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 0: Election timeout elapsed at 1712293883.308871, node 3 start new election
+2024/04/05 00:11:23 Term 1: Node 3 sent RequestVote to node 0
+2024/04/05 00:11:23 Term 1: Node 3 sent RequestVote to node 1
+2024/04/05 00:11:23 Term 1: Node 3 sent RequestVote to node 2
+2024/04/05 00:11:23 Term 1: Node 3 sent RequestVote to node 4
+2024/04/05 00:11:23 Term 0: Node 0 receive reqVote from node 3 (term 1)
+2024/04/05 00:11:23 Term 1: Node 0 voted for node 3
+2024/04/05 00:11:23 Term 1: Node 3 got vote from node 0
+2024/04/05 00:11:23 Term 1: Node 3 : received votes = 2, majority = 2
+2024/04/05 00:11:23 Term 0: Node 1 receive reqVote from node 3 (term 1)
+2024/04/05 00:11:23 Term 1: Node 1 voted for node 3
+2024/04/05 00:11:23 Term 1: Node 3 got vote from node 1
+2024/04/05 00:11:23 Term 1: Node 3 : received votes = 3, majority = 2
+2024/04/05 00:11:23 Term 1: Node 3 becomes Leader
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 0: Node 2 receive reqVote from node 3 (term 1)
+2024/04/05 00:11:23 Term 1: Node 2 voted for node 3
+2024/04/05 00:11:23 Term 1: Node 4 receive reqVote from node 3 (term 1)
+2024/04/05 00:11:23 Term 1: Node 4 voted for node 3
+2024/04/05 00:11:23 Term 1: Node 4 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 0 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 1 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Leader 3 received command 10 from client
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:23 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:23 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:23 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:23 Term 1: Node 4 receives log entry from leader 3
+2024/04/05 00:11:23 Consistency check args PrevIdx 0, lastIdx 0, args PrevTerm-1 , log Term -1
+2024/04/05 00:11:23 Follower 4 apply command 10 at 1
+2024/04/05 00:11:23 Term 1: Node 0 receives log entry from leader 3
+2024/04/05 00:11:23 Consistency check args PrevIdx 0, lastIdx 0, args PrevTerm-1 , log Term -1
+2024/04/05 00:11:23 Follower 0 apply command 10 at 1
+2024/04/05 00:11:23 leader apply command 10 at 1
+2024/04/05 00:11:23 Term 1: Node 1 receives log entry from leader 3
+2024/04/05 00:11:23 Consistency check args PrevIdx 0, lastIdx 0, args PrevTerm-1 , log Term -1
+2024/04/05 00:11:23 Follower 1 apply command 10 at 1
+2024/04/05 00:11:23 leader apply command 10 at 1
+2024/04/05 00:11:23 Term 1: Node 2 receives log entry from leader 3
+2024/04/05 00:11:23 Consistency check args PrevIdx 0, lastIdx 0, args PrevTerm-1 , log Term -1
+2024/04/05 00:11:23 Follower 2 apply command 10 at 1
+2024/04/05 00:11:23 leader apply command 10 at 1
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 4 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 0 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 1 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 4 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 0 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 1 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 11: Election timeout elapsed at 1712293883.674997, node 1 start new election
+2024/04/05 00:11:23 Term 12: Node 1 sent RequestVote to node 0
+2024/04/05 00:11:23 Term 12: Node 1 sent RequestVote to node 2
+2024/04/05 00:11:23 Term 12: Fail to send RequestVote from node 1 to node 0
+2024/04/05 00:11:23 Term 12: Fail to send RequestVote from node 1 to node 2
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 4 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 0 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 1 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:23 Term 1: Node 4 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 0 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 1 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:23 Term 1: Leader 3 received command 20 from client
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:23 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:23 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:23 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:23 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:23 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:23 Term 1: Node 2 receives log entry from leader 3
+2024/04/05 00:11:23 Consistency check args PrevIdx 1, lastIdx 1, args PrevTerm1 , log Term 1
+2024/04/05 00:11:23 Follower 2 apply command 20 at 2
+2024/04/05 00:11:23 Reset timer
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 11: Election timeout elapsed at 1712293884.075584, node 0 start new election
+2024/04/05 00:11:24 Term 12: Node 0 sent RequestVote to node 1
+2024/04/05 00:11:24 Term 12: Node 0 sent RequestVote to node 2
+2024/04/05 00:11:24 Term 12: Fail to send RequestVote from node 0 to node 1
+2024/04/05 00:11:24 Term 12: Fail to send RequestVote from node 0 to node 2
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 1: Election timeout elapsed at 1712293884.378090, node 1 start new election
+2024/04/05 00:11:24 Term 2: Node 1 sent RequestVote to node 0
+2024/04/05 00:11:24 Term 2: Node 1 sent RequestVote to node 2
+2024/04/05 00:11:24 Term 2: Node 1 sent RequestVote to node 3
+2024/04/05 00:11:24 Term 2: Node 1 sent RequestVote to node 4
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Election timeout elapsed at 1712293884.408593, node 0 start new election
+2024/04/05 00:11:24 Term 2: Node 0 sent RequestVote to node 1
+2024/04/05 00:11:24 Term 2: Node 0 sent RequestVote to node 2
+2024/04/05 00:11:24 Term 2: Node 0 sent RequestVote to node 3
+2024/04/05 00:11:24 Term 2: Node 0 sent RequestVote to node 4
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:24 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:24 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:24 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:24 Reset timer
+2024/04/05 00:11:25 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:25 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:25 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:25 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:25 Reset timer
+2024/04/05 00:11:25 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:25 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:25 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:25 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:25 Reset timer
+2024/04/05 00:11:25 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:25 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:25 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:25 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 3 starts sending hb
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+2024/04/05 00:11:25 Term 1: Node 2 receives hb from leader 3
+2024/04/05 00:11:25 Reset timer
+2024/04/05 00:11:25 Term 12: Election timeout elapsed at 1712293885.258310, node 1 start new election
+2024/04/05 00:11:25 Term 13: Node 1 sent RequestVote to node 0
+2024/04/05 00:11:25 Term 13: Node 1 sent RequestVote to node 2
+2024/04/05 00:11:25 Term 13: Fail to send RequestVote from node 1 to node 0
+2024/04/05 00:11:25 Term 13: Fail to send RequestVote from node 1 to node 2
+2024/04/05 00:11:25 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:25 Term 11: Node 2 starts sending hb
+2024/04/05 00:11:25 Term 11: Leader 2 fails to send hb to node 1
+2024/04/05 00:11:25 Term 11: Leader 2 fails to send hb to node 0
+2024/04/05 00:11:25 Term 1: Node 3 starts sending log entry
+panic: runtime error: slice bounds out of range [-1:]
+
+goroutine 761 [running]:
+raft/raft.(*Raft).LeaderLoop(0xc000493860)
+	/home/jt37/raft-mp2/src/raft/raft.go:193 +0x6f0
+created by raft/raft.(*Raft).SendRequestVoteToPeer
+	/home/jt37/raft-mp2/src/raft/raft.go:412 +0x3bc
+exit status 2
+FAIL	raft/raft	15.141s

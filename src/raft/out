@@ -1,0 +1,104 @@
+warning: only one CPU, which may conceal locking bugs
+Test (2B): agreement despite follower disconnection ...
+2024/04/05 00:08:32 Term 0: Election timeout elapsed at 1712293712.504249, node 1 start new election
+2024/04/05 00:08:32 Term 1: Node 1 sent RequestVote to node 0
+2024/04/05 00:08:32 Term 1: Node 1 sent RequestVote to node 2
+2024/04/05 00:08:32 Term 0: Node 0 receive reqVote from node 1 (term 1)
+2024/04/05 00:08:32 Term 1: Node 0 voted for node 1
+2024/04/05 00:08:32 Term 1: Node 1 got vote from node 0
+2024/04/05 00:08:32 Term 1: Node 1 : received votes = 2, majority = 1
+2024/04/05 00:08:32 Term 1: Node 1 becomes Leader
+2024/04/05 00:08:32 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:32 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:32 Term 1: Node 2 receive reqVote from node 1 (term 1)
+2024/04/05 00:08:32 Term 1: Node 2 voted for node 1
+2024/04/05 00:08:32 Term 1: Node 2 receives hb from leader 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Term 1: Leader 1 received command 101 from client
+2024/04/05 00:08:32 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:32 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:32 Term 1: Node 2 receives log entry from leader 1
+2024/04/05 00:08:32 Consistency check args PrevIdx 0, lastIdx 0, args PrevTerm-1 , log Term -1
+2024/04/05 00:08:32 Follower 2 apply command 101 at 1
+2024/04/05 00:08:32 leader apply command 101 at 1
+2024/04/05 00:08:32 Term 1: Node 0 receives log entry from leader 1
+2024/04/05 00:08:32 Consistency check args PrevIdx 0, lastIdx 0, args PrevTerm-1 , log Term -1
+2024/04/05 00:08:32 Follower 0 apply command 101 at 1
+2024/04/05 00:08:32 leader apply command 101 at 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:32 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:32 Term 1: Node 2 receives hb from leader 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:32 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:32 Term 1: Node 2 receives hb from leader 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:32 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:32 Term 1: Node 2 receives hb from leader 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:32 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:32 Reset timer
+2024/04/05 00:08:33 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:33 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:33 Term 1: Node 2 receives hb from leader 1
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Leader 1 received command 102 from client
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 0 receives log entry from leader 1
+2024/04/05 00:08:33 Consistency check args PrevIdx 1, lastIdx 1, args PrevTerm1 , log Term 1
+2024/04/05 00:08:33 Follower 0 apply command 102 at 2
+2024/04/05 00:08:33 leader apply command 102 at 2
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Leader 1 received command 103 from client
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 0 receives log entry from leader 1
+2024/04/05 00:08:33 Consistency check args PrevIdx 2, lastIdx 2, args PrevTerm1 , log Term 1
+2024/04/05 00:08:33 Follower 0 apply command 103 at 3
+2024/04/05 00:08:33 leader apply command 103 at 3
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Election timeout elapsed at 1712293713.631251, node 2 start new election
+2024/04/05 00:08:33 Term 2: Node 2 sent RequestVote to node 0
+2024/04/05 00:08:33 Term 2: Node 2 sent RequestVote to node 1
+2024/04/05 00:08:33 Term 1: Node 1 starts sending hb
+2024/04/05 00:08:33 Term 1: Node 1 starts sending log entry
+2024/04/05 00:08:33 Term 1: Node 0 receives hb from leader 1
+2024/04/05 00:08:33 Reset timer
+2024/04/05 00:08:33 Term 1: Node 1 starts sending hb
+panic: runtime error: slice bounds out of range [-1:]
+
+goroutine 26 [running]:
+raft/raft.(*Raft).LeaderLoop(0xc0000c8750)
+	/home/jt37/raft-mp2/src/raft/raft.go:193 +0x6f0
+created by raft/raft.(*Raft).SendRequestVoteToPeer
+	/home/jt37/raft-mp2/src/raft/raft.go:412 +0x3bc
+exit status 2
+FAIL	raft/raft	1.862s
