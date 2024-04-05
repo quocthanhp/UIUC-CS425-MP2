@@ -42,6 +42,7 @@ type ApplyMsg struct {
 type LogEntry struct {
 	Command interface{}
 	Term    int
+	Index	int
 }
 
 // Server states
@@ -119,23 +120,88 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		rf.votedFor = -1
 	}
 
+	if (args.Entries != nil) {
+		DPrintf("Term %d: Node %d receives log entry from leader %d\n", rf.currentTerm, rf.me, args.LeaderId)
+		
+		rf.commitIndex = args.LeaderCommit
+
+		// for _, e := range args.Entries {
+		// 	if (
+		// }
+
+		// Consistency check
+		lastIndex := rf.getLastLogIndex()
+		DPrintf("Consistency check args PrevIdx %d, lastIdx %d, args PrevTerm%d , log Term %d\n", args.PrevLogIndex, lastIndex, args.PrevLogTerm, rf.log[lastIndex].Term)
+		if (args.PrevLogIndex == lastIndex && args.PrevLogTerm == rf.log[lastIndex].Term) {
+			for _, e := range args.Entries {
+				rf.log = append(rf.log, e)
+				rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
+				DPrintf("Follower %d apply command %d at %d\n", rf.me, e.Command, e.Index)
+			}
+		}
+	}
+
 	reply.Success = true
 	reply.Term = rf.currentTerm
 	
 }
 
 func (rf *Raft) LeaderLoop() {
+	rf.mu.Lock()
+
+	if (rf.state != Candidate) {
+		rf.mu.Unlock()
+		return
+	}
+
+	rf.state = Leader
+
+	/* Update log info */
+	rf.nextIndex = make([]int, len(rf.peers))
+	rf.matchIndex = make([]int, len(rf.peers))
+	for peer := range rf.peers {
+		if peer != rf.me {
+			rf.nextIndex[peer] = rf.getLastLogIndex() + 1
+		}
+	}
+
+	rf.mu.Unlock()
+
 	for {
 		rf.mu.Lock()
 		state := rf.state
 		leaderTerm := rf.currentTerm
+		lastLogIndex := rf.getLastLogIndex()
 		rf.mu.Unlock()
 
 		if state == Leader {
-			DPrintf("Term %d: Node %d starts sending hb\n", rf.currentTerm, rf.me)
 			for peer := range rf.peers {
 				if peer != rf.me {
-					go rf.sendHeartbeat(peer, leaderTerm)
+					if (lastLogIndex >= rf.nextIndex[peer]) {
+						// send log entries
+						args := AppendEntriesArgs{
+							Term:         leaderTerm,
+							LeaderId:     rf.me,
+							PrevLogIndex: rf.log[rf.getLastLogIndex() - 1].Index,
+							PrevLogTerm:  rf.log[rf.getLastLogIndex() - 1].Term,
+							Entries:      rf.log[rf.nextIndex[peer]:],
+							LeaderCommit: rf.commitIndex,
+						}
+
+						DPrintf("Term %d: Node %d starts sending log entry\n", leaderTerm, rf.me)
+						go rf.sendAppendEntries(peer, args)
+
+					} else {
+						// send heart beat
+						args := AppendEntriesArgs{
+							Term:     leaderTerm,
+							LeaderId: rf.me,
+							Entries:  []LogEntry{},
+						}
+
+						DPrintf("Term %d: Node %d starts sending hb\n", leaderTerm, rf.me)
+						go rf.sendAppendEntries(peer, args)
+					}
 				}
 			}
 			time.Sleep(time.Duration(HeartbeatInterval) * time.Millisecond)
@@ -145,17 +211,13 @@ func (rf *Raft) LeaderLoop() {
 	}
 }
 
-func (rf *Raft) sendHeartbeat(server int, leaderTerm int) {
-	args := AppendEntriesArgs{
-		Term:         leaderTerm,
-		LeaderId:     rf.me,
-		PrevLogIndex: 0,
-		PrevLogTerm:  0,
-		Entries:      []LogEntry{},
-		LeaderCommit: rf.commitIndex,
+func (rf *Raft) sendAppendEntries(server int, args AppendEntriesArgs) {
+	isReplicated := false
 
-		// other fields...
+	if len(args.Entries) != 0 {
+		isReplicated = true
 	}
+
 	reply := AppendEntriesReply{}
 
 	ok := rf.peers[server].Call("Raft.AppendEntries", &args, &reply)
@@ -176,7 +238,35 @@ func (rf *Raft) sendHeartbeat(server int, leaderTerm int) {
 		go rf.StartServer()
 		DPrintf("Term %d: Leader %d downgrades to Follower\n", rf.currentTerm, rf.me)
 	}
+
+	if (isReplicated) {
+		// Need to fix later
+		rf.nextIndex[server]++;
+		rf.matchIndex[server]++; 
+	}
+
+	// check majority of replication
+	ack := 0
+	if (isReplicated) {
+		for peer := range rf.peers {
+			if (peer != rf.me) {
+				if (rf.matchIndex[peer] == rf.getLastLogIndex()) {
+					ack++;
+				}
+			}
+		}
+	}
+	
+	if isReplicated && ack > len(rf.peers)/2 {
+		for _, e := range args.Entries {
+			rf.commitIndex++;
+			rf.lastApplied = e.Index;
+			rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
+			DPrintf("leader apply command %d at %d\n", e.Command, e.Index)
+		}
+	}
 }
+
 
 // return currentTerm and whether this server
 // believes it is the leader.
@@ -307,10 +397,10 @@ func (rf *Raft) SendRequestVoteToPeer(peer int, electionTerm int) {
 
 		if len(rf.votesReceived) > len(rf.peers)/2 {
 			// receive vote from majority of servers -> become Leader
-			rf.state = Leader
 			rf.leaderAlive = true
 			go rf.LeaderLoop()
 			DPrintf("Term %d: Node %d becomes Leader\n", rf.currentTerm, rf.me)
+			return
 		}
 	} else if voteReplyTerm > currentTerm {
 		rf.currentTerm = voteReplyTerm
@@ -437,8 +527,23 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	isLeader := true
 
 	// Your code here (2B).
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	
+	if rf.state != Leader  {
+		return index, rf.currentTerm, false
+	}
+
+	index, term = len(rf.log), rf.currentTerm
+	rf.log = append(rf.log, LogEntry{Command: command, Term: term, Index: rf.getLastLogIndex() + 1})
+
+	DPrintf("Term %d: Leader %d received command %d from client\n", term, rf.me, command)
 
 	return index, term, isLeader
+}
+
+func (rf *Raft) getLastLogIndex() int {
+	return len(rf.log) - 1;
 }
 
 // the tester doesn't halt goroutines created by Raft after each test,
@@ -472,8 +577,10 @@ func (rf *Raft) StartServer() {
 			select {
 			case args := <-rf.heartbeatCh:
 				rf.mu.Lock()
-				DPrintf("Term %d: Node %d receives hb from leader %d\n", rf.currentTerm, rf.me, args.LeaderId)
 				rf.leaderAlive = true
+				if args.Entries == nil {
+					DPrintf("Term %d: Node %d receives hb from leader %d\n", rf.currentTerm, rf.me, args.LeaderId)
+				}
 				rf.mu.Unlock()
 				DPrintf("Reset timer\n")
 			}
@@ -509,17 +616,24 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		me:              me,
 		currentTerm:     0,
 		votedFor:        -1,
-		log:             make([]LogEntry, 0),
-		commitIndex:     0,
 		state:           Follower,
 		electionTimeout: getRandomTimer(),
 		heartbeatCh:     make(chan *AppendEntriesArgs),
 		leaderAlive:     false,
 		electionCh:      make(chan bool),
+		
+		/* Part 2B */
+		log:             make([]LogEntry, 0),
+		commitIndex:     0,
+		lastApplied:     0,
+		applyCh: 		 applyCh,
 	}
 
 	//DPrintf("Node %d, timeout %f\n", rf.me, rf.electionTimeout)
 	// Your initialization code here (2A, 2B).
+
+	rf.log = append(rf.log, LogEntry{Command: nil, Term: -1, Index: 0}) // log index starts at 1
+	rf.applyCh <- ApplyMsg{CommandValid: true, Command: nil, CommandIndex: 0}
 
 	go rf.StartServer()
 
