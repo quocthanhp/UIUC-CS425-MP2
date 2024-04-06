@@ -411,6 +411,7 @@ func (cfg *config) one(cmd interface{}, expectedServers int, retry bool) int {
 				// log.Printf("nd: %d", nd)
 				// log.Printf("cmd1: %d", cmd1)
 				// log.Printf("expectedServers: %d", expectedServers)
+				DPrintf("nd: %d", nd)
 				if nd > 0 && nd >= expectedServers {
 					// committed
 					if cmd1 == cmd {
