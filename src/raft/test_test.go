@@ -201,7 +201,6 @@ func TestFailNoAgree2B(t *testing.T) {
 	}
 
 	time.Sleep(2 * RaftElectionTimeout)
-
 	n, _ := cfg.nCommitted(index)
 	if n > 0 {
 		t.Fatalf("%v committed but no majority", n)

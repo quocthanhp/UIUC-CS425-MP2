@@ -23,6 +23,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
+	"sort"
 )
 
 //
@@ -148,8 +149,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			if (leaderPrevLogIndex <= rf.getLastLogIndex() && leaderPrevLogTerm == rf.log[leaderPrevLogIndex].Term) {
 				for _, e := range args.Entries {
 					rf.log = append(rf.log, e)
-					rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
-					DPrintf("Follower %d apply command %d at %d\n", rf.me, e.Command, e.Index)
+					DPrintf("Follower %d appending entry %d at %d\n", rf.me, e.Command, e.Index)
 				}
 				break
 			} else {
@@ -163,7 +163,13 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	reply.Term = rf.currentTerm
 
 	if args.LeaderCommit > rf.commitIndex {
-		rf.commitIndex = min(args.LeaderCommit, rf.getLastLogIndex())
+		newCommitIndex := min(args.LeaderCommit, rf.getLastLogIndex())
+		for i := rf.commitIndex + 1; i <= newCommitIndex; i++ {
+			e := rf.log[i]
+			rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
+			DPrintf("Follower %d apply command %d at %d\n", rf.me, e.Command, e.Index)
+		}
+		rf.commitIndex = newCommitIndex
 	}
 	reply.UpdatedNextIndex = rf.getLastLogIndex() + 1
 	DPrintf("new commit index on server %d commitIndex %d\n", rf.me, rf.commitIndex)
@@ -223,6 +229,7 @@ func (rf *Raft) LeaderLoop() {
 							Term:     leaderTerm,
 							LeaderId: rf.me,
 							Entries:  []LogEntry{},
+							LeaderCommit: rf.commitIndex,
 						}
 
 						DPrintf("Term %d: Node %d starts sending hb\n", leaderTerm, rf.me)
@@ -267,30 +274,28 @@ func (rf *Raft) sendAppendEntries(server int, args AppendEntriesArgs) {
 	rf.nextIndex[server] = reply.UpdatedNextIndex
 	rf.matchIndex[server] = rf.nextIndex[server] - 1
 	DPrintf("server %d's next index incremented to: %d", server, rf.nextIndex[server])
-	// if (isReplicated) {
-	// 	// Need to fix later
-	// 	DPrintf("server %d's next index incremented to: %d", server, rf.nextIndex[server])
-	// }
 
 	// check majority of replication
-	ack := 1
 	if (isReplicated) {
-		for peer := range rf.peers {
-			if (peer != rf.me) {
-				if (rf.matchIndex[peer] == rf.getLastLogIndex()) {
-					ack++;
-				}
-			}
-		}
-	}
-	if isReplicated && ack > len(rf.peers)/2 {
-		for _, e := range args.Entries {
-			rf.commitIndex++;
-			rf.lastApplied = e.Index;
+		sliceCopy := make([]int, len(rf.matchIndex))
+		copy(sliceCopy, rf.matchIndex)
+
+		sort.Ints(sliceCopy)
+
+		medianIndex := len(sliceCopy) / 2
+
+		newCommitIndex := sliceCopy[medianIndex]
+
+		for i := rf.commitIndex + 1; i <= newCommitIndex; i++ {
+			e := rf.log[i]
+			rf.lastApplied = e.Index
 			rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
 			DPrintf("leader apply command %d at %d\n", e.Command, e.Index)
 		}
+
+		rf.commitIndex = newCommitIndex
 	}
+
 	DPrintf("leader commit index: %d", rf.commitIndex)
 }
 
@@ -570,6 +575,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 
 	index, term = len(rf.log), rf.currentTerm
 	rf.log = append(rf.log, LogEntry{Command: command, Term: term, Index: rf.getLastLogIndex() + 1})
+	rf.matchIndex[rf.me] += 1
 
 	DPrintf("Term %d: Leader %d received command %d from client\n", term, rf.me, command)
 

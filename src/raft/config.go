@@ -329,6 +329,7 @@ func (cfg *config) nCommitted(index int) (int, interface{}) {
 				cfg.t.Fatalf("committed values do not match: index %v, %v, %v\n",
 					index, cmd, cmd1)
 			}
+			DPrintf("it was server %d", i)
 			count += 1
 			cmd = cmd1
 		}
