@@ -367,12 +367,21 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		DPrintf("Term %d: Moving node %d to new term by %d\n", rf.currentTerm, rf.me, candidateId)
 	}
 
-	if voteRequestTerm == rf.currentTerm && (rf.votedFor == -1 || rf.votedFor == candidateId) && ((candidateLastLogTerm > receiverLastLogTerm) || (candidateLastLogTerm == receiverLastLogTerm && candidateLastLogIndex >= receiverLastLogIndex)) {
-		// not voted yet OR already voted for that candidate and candidate is up to date
-		reply.VoteGranted = true
-		reply.Term = voteRequestTerm
-		rf.votedFor = candidateId
-		DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm, rf.me, candidateId)
+	if voteRequestTerm == rf.currentTerm && (rf.votedFor == -1 || rf.votedFor == candidateId) {
+		if candidateLastLogTerm != -1 {
+			if candidateLastLogTerm > receiverLastLogTerm || ((candidateLastLogTerm == receiverLastLogTerm) && (candidateLastLogIndex > receiverLastLogIndex)) {
+				reply.VoteGranted = true
+				reply.Term = voteRequestTerm
+				rf.votedFor = candidateId
+				DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm, rf.me, candidateId)
+			}
+		} else {
+			// not voted yet OR already voted for that candidate and candidate is up to date
+			reply.VoteGranted = true
+			reply.Term = voteRequestTerm
+			rf.votedFor = candidateId
+			DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm, rf.me, candidateId)
+		}
 	} else {
 		// already voted for other candidate OR RequestVote is outdated OR candidate is not up to date
 		DPrintf("Term %d: Node %d already voted for node %d/or ReqVote outdated\n", rf.currentTerm, rf.me, rf.votedFor)
