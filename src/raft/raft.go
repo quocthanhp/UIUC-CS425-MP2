@@ -23,7 +23,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-	"sort"
+	//"sort"
 )
 
 //
@@ -103,7 +103,7 @@ type AppendEntriesArgs struct {
 type AppendEntriesReply struct {
 	Term    int
 	Success bool
-	UpdatedNextIndex    int
+	Conflicted bool
 }
 
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) {
@@ -111,6 +111,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	defer rf.mu.Unlock()
 
 	rf.heartbeatCh <- args
+	reply.Conflicted = false
 
 	/* HANDLE NETWORK FAILURE WHERE OLD LEADER STILL ASSUMES IT IS STILL LEADER */
 	if args.Term < rf.currentTerm {
@@ -126,36 +127,27 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		rf.votedFor = -1
 	}
 
-	if (args.Entries != nil) {
+	if (len(args.Entries) > 0) {
 		DPrintf("Term %d: Node %d receives log entry from leader %d\n", rf.currentTerm, rf.me, args.LeaderId)
-
-		// for _, e := range args.Entries {
-		// 	if (
-		// }
 
 		leaderPrevLogIndex := args.PrevLogIndex
 		leaderPrevLogTerm := args.PrevLogTerm
 
-		reply.UpdatedNextIndex = leaderPrevLogIndex
-
 		// Consistency check
 		DPrintf("Consistency check on server %d args PrevIdx %d <= lastIdx %d, args PrevTerm %d\n", rf.me, leaderPrevLogIndex, rf.getLastLogIndex(), args.PrevLogTerm)
 		DPrintf("leader commit log length to server %d: %d\n", rf.me, len(args.Entries))
-
-		for _, element := range args.Entries {
-			DPrintf("Leader commit element %d", element.Command)
-		}
-		for {
-			if (leaderPrevLogIndex <= rf.getLastLogIndex() && leaderPrevLogTerm == rf.log[leaderPrevLogIndex].Term) {
-				for _, e := range args.Entries {
-					rf.log = append(rf.log, e)
-					DPrintf("Follower %d appending entry %d at %d\n", rf.me, e.Command, e.Index)
-				}
-				break
-			} else {
-				DPrintf("Going back one index")
-				leaderPrevLogIndex -= 1
+	
+		if (leaderPrevLogIndex == rf.getLastLogIndex() && leaderPrevLogTerm == rf.log[rf.getLastLogIndex()].Term) {
+			for _, e := range args.Entries {
+				rf.log = append(rf.log, e)
+				DPrintf("Follower %d appending entry %d at %d\n", rf.me, e.Command, e.Index)
 			}
+		} else {
+			// Log mismatch
+			reply.Success = false
+			reply.Term = rf.currentTerm
+			reply.Conflicted = true
+			return
 		}
 	}
 
@@ -163,15 +155,15 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	reply.Term = rf.currentTerm
 
 	if args.LeaderCommit > rf.commitIndex {
-		newCommitIndex := min(args.LeaderCommit, rf.getLastLogIndex())
-		for i := rf.commitIndex + 1; i <= newCommitIndex; i++ {
+		rf.commitIndex = min(args.LeaderCommit, rf.getLastLogIndex())
+		for i := rf.lastApplied + 1; i <= rf.commitIndex; i++ {
 			e := rf.log[i]
 			rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
 			DPrintf("Follower %d apply command %d at %d\n", rf.me, e.Command, e.Index)
+			rf.lastApplied = i
 		}
-		rf.commitIndex = newCommitIndex
 	}
-	reply.UpdatedNextIndex = rf.getLastLogIndex() + 1
+
 	DPrintf("new commit index on server %d commitIndex %d\n", rf.me, rf.commitIndex)
 	
 }
@@ -225,13 +217,14 @@ func (rf *Raft) LeaderLoop() {
 
 					} else {
 						// send heart beat
+						rf.mu.Lock()
 						args := AppendEntriesArgs{
 							Term:     leaderTerm,
 							LeaderId: rf.me,
 							Entries:  []LogEntry{},
 							LeaderCommit: rf.commitIndex,
 						}
-
+						rf.mu.Unlock()
 						DPrintf("Term %d: Node %d starts sending hb\n", leaderTerm, rf.me)
 						go rf.sendAppendEntries(peer, args)
 					}
@@ -263,38 +256,52 @@ func (rf *Raft) sendAppendEntries(server int, args AppendEntriesArgs) {
 	defer rf.mu.Unlock()
 
 	/* HANDLE NETWORK FAILURE WHERE OLD LEADER STILL ASSUMES IT IS STILL LEADER */
-	if !reply.Success && args.Term == rf.currentTerm {
+	if !reply.Success && !reply.Conflicted {
 		rf.currentTerm = reply.Term
 		rf.votedFor = -1 // forget node voted for in previous term
 		rf.state = Follower
 		rf.votesReceived = map[int]bool{}
 		go rf.StartServer()
 		DPrintf("Term %d: Leader %d downgrades to Follower\n", rf.currentTerm, rf.me)
+		return
 	}
-	rf.nextIndex[server] = reply.UpdatedNextIndex
-	rf.matchIndex[server] = rf.nextIndex[server] - 1
-	DPrintf("server %d's next index incremented to: %d", server, rf.nextIndex[server])
+
+	if (!reply.Success && reply.Conflicted) {
+		rf.nextIndex[server]--;
+		rf.matchIndex[server] = rf.nextIndex[server] - 1
+		return
+	}
 
 	// check majority of replication
 	if (isReplicated) {
-		sliceCopy := make([]int, len(rf.matchIndex))
-		copy(sliceCopy, rf.matchIndex)
-
-		sort.Ints(sliceCopy)
-
-		medianIndex := len(sliceCopy) / 2
-
-		newCommitIndex := sliceCopy[medianIndex]
-
-		for i := rf.commitIndex + 1; i <= newCommitIndex; i++ {
-			e := rf.log[i]
-			rf.lastApplied = e.Index
-			rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
-			DPrintf("leader apply command %d at %d\n", e.Command, e.Index)
-		}
-
-		rf.commitIndex = newCommitIndex
+		rf.matchIndex[server] = args.PrevLogIndex + len(args.Entries)
+		rf.nextIndex[server] = rf.matchIndex[server] + 1
+		DPrintf("server %d's next index incremented to: %d", server, rf.nextIndex[server])
 	}
+
+	//if isReplicated && (rf.commitIndex < args.Entries[0].Index) {
+		for n := rf.getLastLogIndex(); n >= rf.commitIndex; n-- {
+			ack := 1
+			if rf.log[n].Term == rf.currentTerm {
+				for peer := 0; peer < len(rf.peers); peer++ {
+					if peer != rf.me && rf.matchIndex[peer] >= n {
+						ack++
+					}
+				}
+			}
+
+			if ack > len(rf.peers) / 2 {
+				rf.commitIndex = n
+				for i := rf.lastApplied + 1; i <= rf.commitIndex; i++ {
+					e := rf.log[i]
+					rf.applyCh <- ApplyMsg{CommandValid: true, Command: e.Command, CommandIndex: e.Index}
+					rf.lastApplied = i
+					DPrintf("Term %d: Leader %d apply command %d\n", rf.currentTerm, rf.me, e.Command)
+				}
+				break
+			}
+		}
+	//}
 
 	DPrintf("leader commit index: %d", rf.commitIndex)
 }
@@ -360,12 +367,21 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		DPrintf("Term %d: Moving node %d to new term by %d\n", rf.currentTerm, rf.me, candidateId)
 	}
 
-	if voteRequestTerm == rf.currentTerm && (rf.votedFor == -1 || rf.votedFor == candidateId) && ((candidateLastLogTerm > receiverLastLogTerm) || (candidateLastLogTerm == receiverLastLogTerm && candidateLastLogIndex >= receiverLastLogIndex)) {
-		// not voted yet OR already voted for that candidate and candidate is up to date
-		reply.VoteGranted = true
-		reply.Term = voteRequestTerm
-		rf.votedFor = candidateId
-		DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm, rf.me, candidateId)
+	if voteRequestTerm == rf.currentTerm && (rf.votedFor == -1 || rf.votedFor == candidateId) {
+		if candidateLastLogTerm != -1 {
+			if candidateLastLogTerm > receiverLastLogTerm || ((candidateLastLogTerm == receiverLastLogTerm) && (candidateLastLogIndex > receiverLastLogIndex)) {
+				reply.VoteGranted = true
+				reply.Term = voteRequestTerm
+				rf.votedFor = candidateId
+				DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm, rf.me, candidateId)
+			}
+		} else {
+			// not voted yet OR already voted for that candidate and candidate is up to date
+			reply.VoteGranted = true
+			reply.Term = voteRequestTerm
+			rf.votedFor = candidateId
+			DPrintf("Term %d: Node %d voted for node %d\n", rf.currentTerm, rf.me, candidateId)
+		}
 	} else {
 		// already voted for other candidate OR RequestVote is outdated OR candidate is not up to date
 		DPrintf("Term %d: Node %d already voted for node %d/or ReqVote outdated\n", rf.currentTerm, rf.me, rf.votedFor)
@@ -493,8 +509,6 @@ func (rf *Raft) StartElectionTimer() {
 			//rf.leaderAlive = true
 			return
 		}
-
-		
 
 		if rf.leaderAlive {
 			rf.leaderAlive = false
