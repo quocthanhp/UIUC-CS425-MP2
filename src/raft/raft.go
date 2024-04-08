@@ -279,7 +279,7 @@ func (rf *Raft) sendAppendEntries(server int, args AppendEntriesArgs) {
 		DPrintf("server %d's next index incremented to: %d", server, rf.nextIndex[server])
 	}
 
-	if isReplicated && (rf.commitIndex < args.Entries[0].Index) {
+	//if isReplicated && (rf.commitIndex < args.Entries[0].Index) {
 		for n := rf.getLastLogIndex(); n >= rf.commitIndex; n-- {
 			ack := 1
 			if rf.log[n].Term == rf.currentTerm {
@@ -301,7 +301,7 @@ func (rf *Raft) sendAppendEntries(server int, args AppendEntriesArgs) {
 				break
 			}
 		}
-	}
+	//}
 
 	DPrintf("leader commit index: %d", rf.commitIndex)
 }

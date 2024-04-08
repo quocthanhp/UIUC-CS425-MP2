@@ -329,7 +329,6 @@ func (cfg *config) nCommitted(index int) (int, interface{}) {
 				cfg.t.Fatalf("committed values do not match: index %v, %v, %v\n",
 					index, cmd, cmd1)
 			}
-			DPrintf("it was server %d", i)
 			count += 1
 			cmd = cmd1
 		}
@@ -409,10 +408,6 @@ func (cfg *config) one(cmd interface{}, expectedServers int, retry bool) int {
 			t1 := time.Now()
 			for time.Since(t1).Seconds() < 2 {
 				nd, cmd1 := cfg.nCommitted(index)
-				// log.Printf("nd: %d", nd)
-				// log.Printf("cmd1: %d", cmd1)
-				// log.Printf("expectedServers: %d", expectedServers)
-				DPrintf("nd: %d", nd)
 				if nd > 0 && nd >= expectedServers {
 					// committed
 					if cmd1 == cmd {
@@ -464,3 +459,4 @@ func (cfg *config) end() {
 		fmt.Printf("  %4.1f  %d %4d %7d %4d\n", t, npeers, nrpc, nbytes, ncmds)
 	}
 }
+
