@@ -23,7 +23,6 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-	//"sort"
 )
 
 //
@@ -87,6 +86,8 @@ type Raft struct {
 	applyCh     chan ApplyMsg
 
 	logLock   	sync.Mutex
+
+	Pause bool
 }
 
 type AppendEntriesArgs struct {
@@ -107,6 +108,7 @@ type AppendEntriesReply struct {
 }
 
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) {
+	DPrintf("entering AppendEntries")
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 
@@ -127,34 +129,41 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		rf.votedFor = -1
 	}
 
-	if (len(args.Entries) > 0) {
-		DPrintf("Term %d: Node %d receives log entry from leader %d\n", rf.currentTerm, rf.me, args.LeaderId)
+	leaderPrevLogIndex := args.PrevLogIndex
+	leaderPrevLogTerm := args.PrevLogTerm
 
-		leaderPrevLogIndex := args.PrevLogIndex
-		leaderPrevLogTerm := args.PrevLogTerm
+	// Consistency check
+	DPrintf("Consistency check on server %d args PrevIdx %d <= lastIdx %d, args PrevTerm %d\n", rf.me, leaderPrevLogIndex, rf.getLastLogIndex(), args.PrevLogTerm)
+	DPrintf("leader commit log length to server %d: %d\n", rf.me, len(args.Entries))
 
-		// Consistency check
-		DPrintf("Consistency check on server %d args PrevIdx %d <= lastIdx %d, args PrevTerm %d\n", rf.me, leaderPrevLogIndex, rf.getLastLogIndex(), args.PrevLogTerm)
-		DPrintf("leader commit log length to server %d: %d\n", rf.me, len(args.Entries))
-	
-		if (leaderPrevLogIndex == rf.getLastLogIndex() && leaderPrevLogTerm == rf.log[rf.getLastLogIndex()].Term) {
+	if (leaderPrevLogIndex <= rf.getLastLogIndex() && leaderPrevLogTerm == rf.log[leaderPrevLogIndex].Term) {
+		if (len(args.Entries) > 0) {
+			DPrintf("Term %d: Node %d receives log entry from leader %d\n", rf.currentTerm, rf.me, args.LeaderId)
+			if leaderPrevLogIndex < rf.getLastLogIndex() {
+				rf.log = rf.log[:leaderPrevLogIndex + 1]
+				DPrintf("removed all elements up to index %d", leaderPrevLogIndex)
+			}
 			for _, e := range args.Entries {
 				rf.log = append(rf.log, e)
 				DPrintf("Follower %d appending entry %d at %d\n", rf.me, e.Command, e.Index)
 			}
-		} else {
-			// Log mismatch
-			reply.Success = false
-			reply.Term = rf.currentTerm
-			reply.Conflicted = true
-			return
+			rf.Pause = false
+			DPrintf("unpausing")
 		}
+	} else {
+		// Log mismatch
+		reply.Success = false
+		reply.Term = rf.currentTerm
+		reply.Conflicted = true
+		rf.Pause = true
+		DPrintf("pausing")
+		return
 	}
 
 	reply.Success = true
 	reply.Term = rf.currentTerm
 
-	if args.LeaderCommit > rf.commitIndex {
+	if args.LeaderCommit > rf.commitIndex && !rf.Pause {
 		rf.commitIndex = min(args.LeaderCommit, rf.getLastLogIndex())
 		for i := rf.lastApplied + 1; i <= rf.commitIndex; i++ {
 			e := rf.log[i]
@@ -221,6 +230,8 @@ func (rf *Raft) LeaderLoop() {
 						args := AppendEntriesArgs{
 							Term:     leaderTerm,
 							LeaderId: rf.me,
+							PrevLogIndex: rf.log[rf.nextIndex[peer] - 1].Index,
+							PrevLogTerm:  rf.log[rf.nextIndex[peer] - 1].Term,
 							Entries:  []LogEntry{},
 							LeaderCommit: rf.commitIndex,
 						}
@@ -366,10 +377,10 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		rf.state = Follower
 		DPrintf("Term %d: Moving node %d to new term by %d\n", rf.currentTerm, rf.me, candidateId)
 	}
-
+	DPrintf("candidateLastLogTerm: %d", candidateLastLogTerm)
 	if voteRequestTerm == rf.currentTerm && (rf.votedFor == -1 || rf.votedFor == candidateId) {
 		if candidateLastLogTerm != -1 {
-			if candidateLastLogTerm > receiverLastLogTerm || ((candidateLastLogTerm == receiverLastLogTerm) && (candidateLastLogIndex > receiverLastLogIndex)) {
+			if candidateLastLogTerm > receiverLastLogTerm || ((candidateLastLogTerm == receiverLastLogTerm) && (candidateLastLogIndex >= receiverLastLogIndex)) {
 				reply.VoteGranted = true
 				reply.Term = voteRequestTerm
 				rf.votedFor = candidateId
@@ -690,6 +701,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		commitIndex:     0,
 		lastApplied:     0,
 		applyCh: 		 applyCh,
+		Pause: false,
 	}
 
 	//DPrintf("Node %d, timeout %f\n", rf.me, rf.electionTimeout)
